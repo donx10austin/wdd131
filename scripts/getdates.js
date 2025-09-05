@@ -1,8 +1,7 @@
-// Get the current year and set it in the footer
+
 const currentYear = new Date().getFullYear();
 document.getElementById('currentyear').textContent = currentYear;
 
-// Get the last modified date of the document and format it
 const lastModifiedDate = new Date(document.lastModified);
 const options = {
     year: 'numeric',

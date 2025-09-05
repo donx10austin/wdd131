@@ -1,184 +1,130 @@
-/* ==========================
-   Color Schema: Modern & Professional
-   ========================== */
-:root {
-  --primary-color: #004d99;         /* Deep professional blue */
-  --secondary-color: #ffcc00;       /* Vibrant yellow accent */
-  --background-color: #f4f4f4;      /* Light gray */
-  --card-background-color: #ffffff; /* White cards */
-  --text-color: #333333;            /* Dark gray for body text */
-}
 
-/* ==========================
-   Base Typography & Body
-   ========================== */
+/* General Body and Layout */
 body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
 }
 
-/* ==========================
-   Header
-   ========================== */
-header {
-  background-color: var(--primary-color);
-  color: var(--card-background-color);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-#course-title {
-  font-size: 1rem;
-  font-weight: bold;
-  font-family: 'Lato', sans-serif;
-  display: block; /* ensures it appears under your name */
-}
-
-/* ==========================
-   Navigation
-   ========================== */
-nav ul {
-  list-style-type: none; /* Removes bullet points */
-  margin: 0;
-  padding: 0;
-  display: flex; /* Flexbox container */
-  gap: 1.5rem;   /* Space between links */
-}
-
-nav a {
-  color: var(--card-background-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* ==========================
-   Main Layout
-   ========================== */
 main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
 @media (min-width: 768px) {
-  main {
-    grid-template-columns: 2fr 1fr; /* left column wider */
-  }
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-/* ==========================
-   Cards
-   ========================== */
+/* Header and Navigation Styles */
+header {
+    background-color: #0b1a3d;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-bar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#course-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.student-name {
+    color: #a0d8f0;
+    font-weight: 400;
+}
+
+nav {
+    width: 100%;
+    background-color: #1a2c51;
+    border-radius: 8px;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #2a3e6a;
+}
+
+/* Card Styles */
 .card {
-  background-color: var(--card-background-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .card h2 {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--secondary-color);
-  padding-bottom: 0.5rem;
-  font-family: 'Lato', sans-serif;
+    color: #0d1a3e;
+    border-bottom: 2px solid #a0d8f0;
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-family: 'Lato', sans-serif;
 }
 
-/* ==========================
-   Images
-   ========================== */
 .card img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-top: 1rem;
-  border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
-/* Figure for country flag */
-figure {
-  margin: 1rem 0;
-  text-align: center;
+.card figure {
+    margin: 0;
+    text-align: center;
 }
 
-figure img {
-  max-width: 150px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 4px;
+.card figure figcaption {
+    font-style: italic;
+    color: #777;
+    margin-top: 5px;
 }
 
-figcaption {
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 0.5rem;
-  font-style: italic;
-}
-
-/* ==========================
-   Lists & Links
-   ========================== */
-.card ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.card li {
-  margin-bottom: 0.5rem;
-}
-
-.card a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.card a:hover {
-  text-decoration: underline;
-}
-
-/* ==========================
-   Footer
-   ========================== */
+/* Footer Styles */
 footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--primary-color);
-  color: var(--card-background-color);
-  margin-top: 2rem;
-}
-
-footer a {
-  color: var(--secondary-color);
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
+    text-align: center;
+    padding: 20px;
+    background-color: #1a2c51;
+    color: #fff;
+    margin-top: 20px;
 }
 
 footer p {
-  margin: 0.5rem 0;
+    margin: 5px 0;
+    font-size: 0.9rem;
 }

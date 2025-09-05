@@ -1,15 +1,18 @@
-// ==========================
-// Footer Dynamic Dates Script
-// ==========================
+// Get the current year and set it in the footer
+const currentYear = new Date().getFullYear();
+document.getElementById('currentyear').textContent = currentYear;
 
-// Current year
-const yearSpan = document.getElementById('currentyear');
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
+// Get the last modified date of the document and format it
+const lastModifiedDate = new Date(document.lastModified);
+const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+};
 
-// Last modified date
-const lastModifiedParagraph = document.getElementById('lastModified');
-if (lastModifiedParagraph) {
-  lastModifiedParagraph.textContent = `Last Modified: ${document.lastModified}`;
-}
+const formattedDate = lastModifiedDate.toLocaleString('en-US', options);
+
+document.getElementById('lastModified').textContent = `Last Modified: ${formattedDate}`;

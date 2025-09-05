@@ -1,4 +1,4 @@
-
+/* Overall Page and Font Styles */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -8,9 +8,9 @@ body {
     line-height: 1.6;
 }
 
-
+/* Header Section */
 header {
-    background-color: #213A53; 
+    background-color: #213A53; /* Dark blue background */
     color: white;
     padding: 2rem;
     text-align: center;
@@ -24,21 +24,22 @@ header h1 {
 }
 
 #course-title {
-    color: yellow;
+    color: yellow; /* A highlight color for the course title */
 }
 
+/* Navigation Section */
 nav {
-    background-color: #555;
+    background-color: #555; /* Dark gray background */
     padding: 1rem;
     text-align: center;
 }
 
 nav ul {
-    list-style: none; 
+    list-style: none; /* Removes bullet points */
     margin: 0;
     padding: 0;
-    display: flex; 
-    justify-content: space-around; 
+    display: flex; /* Arranges list items horizontally */
+    justify-content: space-around; /* Distributes space evenly between links */
 }
 
 nav a {
@@ -51,20 +52,21 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #777; 
+    background-color: #777; /* A darker shade on hover for feedback */
 }
 
+/* Main Content and Card Sections */
 main {
     padding: 2rem;
     display: grid;
-    gap: 1.5rem; 
+    gap: 1.5rem; /* Space between the cards */
     grid-template-columns: 1fr;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .card {
-    background-color: #213A53; 
+    background-color: #213A53; /* Dark blue background for the cards */
     color: white;
     padding: 2rem;
     border-radius: 10px;
@@ -86,21 +88,32 @@ main {
     margin-bottom: 1rem;
 }
 
+
 @media (min-width: 768px) {
     main {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);  
     }
 }
 
 
 footer {
     text-align: center;
-    padding: 1rem;
-    background-color: #333; 
-    color: white;
-    margin-top: 2rem;
+    padding: 1.5rem; 
+    background-color: #213A53; 
+    color: white; 
+    margin-top: 2rem; 
+    font-size: 0.95rem; 
+    line-height: 1.5; 
 }
 
 footer p {
     margin: 0;
+}
+
+
+#lastModified {
+    color: yellow; 
+    font-weight: bold; 
+    margin-top: 0.5rem; 
+    display: block; 
 }

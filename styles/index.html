@@ -1,67 +1,85 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>WDD 131 – Dynamic Web Fundamentals – Austin Anumudu</title>
-    <meta name="description" content="WDD 131 – Dynamic Web Fundamentals project page for Austin Anumudu. Includes About Me, About Nigeria, and useful web development resources.">
-    <meta name="author" content="Austin Anumudu">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/base.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>WDD 131 – Dynamic Web Fundamentals – Austin Anumudu</title>
+  <meta name="description" content="WDD 131 – Dynamic Web Fundamentals project page for Austin Anumudu. Includes About Me, About Nigeria, and useful web development resources.">
+  <meta name="author" content="Austin Anumudu">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles/base.css">
 </head>
 <body>
-    <header>
-        <h1>WDD 131: <span id="course-title">Dynamic Web Fundamentals</span> - Austin Anumudu</h1>
-        <nav>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/anumudu-austin-donx10/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="https://byupw.instructure.com/" target="_blank" rel="noopener noreferrer">Canvas</a></li>
-                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7" target="_blank" rel="noopener noreferrer">Scripture</a></li>
-                <li><a href="#">Final Project</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="card">
-            <h2>About Me</h2>
-            <img src="images/realaustin.jpg" alt="Profile image of Austin Anumudu">
-            <p>
-                My name is Austin Anumudu and I am from <a href="https://en.wikipedia.org/wiki/Nigeria" target="_blank" rel="noopener noreferrer">Lagos, Nigeria</a>.
-                I have a great passion for computer science and its application in solving real-world problems.
-                In my free time, as a Liverpool FC and football fan, I love watching them play and also, I love travelling and reading. I'm excited to learn more about dynamic web development and build some cool things!
-            </p>
-        </section>
-        <section class="card">
-            <h2>Web Dev Resources</h2>
-            <ul>
-                <li><a href="https://dev.to/" target="_blank" rel="noopener noreferrer">Dev.to Community</a></li>
-                <li><a href="https://www.smashingmagazine.com/" target="_blank" rel="noopener noreferrer">Smashing Magazine</a></li>
-                <li><a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS-Tricks</a></li>
-                <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
-                <li><a href="https://www.udemy.com/" target="_blank" rel="noopener noreferrer">Udemy</a></li>
-                <li><a href="https://placeholder.com/" target="_blank" rel="noopener noreferrer">Image Placeholder</a></li>
-            </ul>
-        </section>
-        <section class="card">
-            <h2>About Nigeria</h2>
-            <figure>
-                <img src="images/nigerianflag.png" alt="Official Flag of Nigeria">
-                <figcaption>Official Flag of Nigeria</figcaption>
-            </figure>
-            <p>
-                Nigeria is the most populous country in West Africa and is located in West Africa along the Gulf of Guinea.
-                It is known for its diverse cultures, languages, and traditions, with over 500 different ethnic groups.
-                Nigeria is rich in natural resources, particularly oil and gas, and has a rapidly growing tech industry.
-                The country is also famous for its Nollywood film industry, Afrobeat music, and delicious cuisine such as jollof rice and suya.
-            </p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; <span id="currentyear"></span> 🌸 Austin Anumudu | Lagos, Nigeria 🌸</p>
-        <p id="lastModified"></p>
-    </footer>
-    <script src="scripts/getdates.js" defer></script>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>WDD 131: <span id="course-title">Dynamic Web Fundamentals</span> - Austin Anumudu</h1>
+    <nav>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/anumudu-austin-donx10/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://byupw.instructure.com/" target="_blank" rel="noopener noreferrer">Canvas</a></li>
+        <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7" target="_blank" rel="noopener noreferrer">Scripture</a></li>
+        <li><a href="#">Final Project</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <!-- About Me -->
+    <section class="card">
+      <h2>About Me</h2>
+      <img src="images/realaustin.jpg" alt="Profile image of Austin Anumudu">
+      <p>
+        My name is Austin Anumudu and I am from 
+        <a href="https://en.wikipedia.org/wiki/Nigeria" target="_blank" rel="noopener noreferrer">Lagos, Nigeria</a>.
+        I have a great passion for computer science and its application in solving real-world problems.
+        In my free time, as a Liverpool FC and football fan, I love watching them play and also, I love travelling and reading. 
+        I'm excited to learn more about dynamic web development and build some cool things!
+      </p>
+    </section>
+
+    <!-- Web Dev Resources -->
+    <section class="card">
+      <h2>Web Dev Resources</h2>
+      <ul>
+        <li><a href="https://dev.to/" target="_blank" rel="noopener noreferrer">Dev.to Community</a></li>
+        <li><a href="https://www.smashingmagazine.com/" target="_blank" rel="noopener noreferrer">Smashing Magazine</a></li>
+        <li><a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS-Tricks</a></li>
+        <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
+        <li><a href="https://www.udemy.com/" target="_blank" rel="noopener noreferrer">Udemy</a></li>
+        <li><a href="https://placeholder.com/" target="_blank" rel="noopener noreferrer">Image Placeholder</a></li>
+      </ul>
+    </section>
+
+    <!-- About Nigeria -->
+    <section class="card">
+      <h2>About Nigeria</h2>
+      <figure>
+        <img src="images/nigerianflag.png" alt="Official Flag of Nigeria">
+        <figcaption>Official Flag of Nigeria</figcaption>
+      </figure>
+      <p>
+        Nigeria is the most populous country in West Africa and is located in West Africa along the Gulf of Guinea.
+        It is known for its diverse cultures, languages, and traditions, with over 500 different ethnic groups.
+        Nigeria is rich in natural resources, particularly oil and gas, and has a rapidly growing tech industry.
+        The country is also famous for its Nollywood film industry, Afrobeat music, and delicious cuisine such as jollof rice and suya.
+      </p>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; <span id="currentyear"></span> 🌸 Austin Anumudu | Lagos, Nigeria 🌸</p>
+    <p id="lastModified"></p>
+  </footer>
+
+  <!-- Script -->
+  <script src="scripts/getdates.js" defer></script>
 </body>
 </html>

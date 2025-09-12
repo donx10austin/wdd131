@@ -1,119 +1,149 @@
-/* Overall Page and Font Styles */
+/* ================================
+   Base Styles - WDD 131 Project
+   Author: Austin Anumudu
+   ================================ */
+
+/* --- General Body --- */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+  font-family: "Roboto", "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5fa;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Header Section */
+/* --- Header --- */
 header {
-    background-color: #213A53; /* Dark blue background */
-    color: white;
-    padding: 2rem;
-    text-align: center;
+  background: linear-gradient(135deg, #4b0082, #6a0dad);
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
 }
 
 header h1 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    margin: 0;
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 #course-title {
-    color: yellow; /* A highlight color for the course title */
+  color: #ffdd57;
 }
 
-/* Navigation Section */
-nav {
-    background-color: #555; /* Dark gray background */
-    padding: 1rem;
-    text-align: center;
-}
-
+/* --- Navigation --- */
 nav ul {
-    list-style: none; /* Removes bullet points */
-    margin: 0;
-    padding: 0;
-    display: flex; /* Arranges list items horizontally */
-    justify-content: space-around; /* Distributes space evenly between links */
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #777; /* A darker shade on hover for feedback */
+  color: #ffdd57;
 }
 
-/* Main Content and Card Sections */
+/* --- Main Layout --- */
 main {
-    padding: 2rem;
-    display: grid;
-    gap: 1.5rem; /* Space between the cards */
-    grid-template-columns: 1fr;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
+/* --- Card Sections --- */
 .card {
-    background-color: #213A53; /* Dark blue background for the cards */
-    color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card h2 {
-    font-family: 'Lato', sans-serif;
-    color: white;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 0.5rem;
-    margin-top: 0;
+  margin-top: 0;
+  color: #4b0082;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
 }
 
+/* --- Images --- */
 .card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1rem auto;
 }
 
-
-@media (min-width: 768px) {
-    main {
-        grid-template-columns: repeat(3, 1fr);  
-    }
+/* --- Figure --- */
+figure {
+  margin: 0;
+  text-align: center;
 }
 
+figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
 
+/* --- Lists --- */
+.card ul {
+  padding-left: 1.2rem;
+}
+
+.card ul li {
+  margin-bottom: 0.5rem;
+}
+
+.card ul a {
+  color: #4b0082;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card ul a:hover {
+  color: #ff5733;
+}
+
+/* --- Footer --- */
 footer {
-    text-align: center;
-    padding: 1.5rem; 
-    background-color: #213A53; 
-    color: white; 
-    margin-top: 2rem; 
-    font-size: 0.95rem; 
-    line-height: 1.5; 
+  background-color: #4b0082;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
 }
 
 footer p {
-    margin: 0;
+  margin: 0.3rem 0;
 }
 
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
 
-#lastModified {
-    color: yellow; 
-    font-weight: bold; 
-    margin-top: 0.5rem; 
-    display: block; 
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

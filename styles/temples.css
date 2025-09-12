@@ -17,13 +17,13 @@ header {
   overflow: hidden;
 }
 
-
 .logo {
   float: left;
   margin: 0;
   font-size: 1.6rem;
   font-weight: 700;
 }
+
 
 #mainNav {
   float: right;

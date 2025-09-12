@@ -1,97 +1,100 @@
-/* ================================
-   Base Styles - WDD 131 Project
-   Author: Austin Anumudu
-   ================================ */
-
-/* --- General Body --- */
+CSS     /* ===== General Styles ===== */
 body {
-  font-family: "Roboto", "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f5f5fa;
+  background-color: #f9f9fb;
   color: #333;
   line-height: 1.6;
 }
 
-/* --- Header --- */
+/* ===== Header ===== */
 header {
-  background: linear-gradient(135deg, #4b0082, #6a0dad);
+  background-color: #4b0082; /* Deep purple */
   color: #fff;
-  padding: 1.5rem;
   text-align: center;
+  padding: 1rem;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 1.8rem;
+  margin: 0.5rem 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
 }
 
-#course-title {
-  color: #ffdd57;
-}
-
-/* --- Navigation --- */
-nav ul {
+header nav ul {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0;
+  margin: 0.5rem 0 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-nav a {
-  text-decoration: none;
+header nav a {
   color: #fff;
-  font-weight: bold;
+  text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #ffdd57;
+header nav a:hover {
+  color: #ffd700; /* Golden yellow hover */
 }
 
-/* --- Main Layout --- */
+/* ===== Main Layout ===== */
 main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 2rem;
 }
 
-/* --- Card Sections --- */
+/* ===== Card Sections ===== */
 .card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   padding: 1.5rem;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .card h2 {
   margin-top: 0;
   color: #4b0082;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 0.5rem;
+  font-family: "Lato", sans-serif;
 }
 
-/* --- Images --- */
+/* Images */
 .card img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 1rem auto;
+  border-radius: 10px;
+  margin: 1rem 0;
 }
 
-/* --- Figure --- */
+/* Web Dev Resources List */
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  margin: 0.5rem 0;
+}
+
+.card ul a {
+  text-decoration: none;
+  color: #4b0082;
+  font-weight: 600;
+}
+
+.card ul a:hover {
+  text-decoration: underline;
+}
+
+/* Figure and Caption */
 figure {
   margin: 0;
   text-align: center;
@@ -103,32 +106,12 @@ figcaption {
   margin-top: 0.5rem;
 }
 
-/* --- Lists --- */
-.card ul {
-  padding-left: 1.2rem;
-}
-
-.card ul li {
-  margin-bottom: 0.5rem;
-}
-
-.card ul a {
-  color: #4b0082;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.card ul a:hover {
-  color: #ff5733;
-}
-
-/* --- Footer --- */
+/* ===== Footer ===== */
 footer {
   background-color: #4b0082;
   color: #fff;
   text-align: center;
   padding: 1rem;
-  margin-top: 2rem;
   font-size: 0.9rem;
 }
 
@@ -136,14 +119,14 @@ footer p {
   margin: 0.3rem 0;
 }
 
-/* --- Responsive --- */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.4rem;
+/* ===== Responsive Design ===== */
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
+  /* Nigeria section spans full width */
+  .card:nth-child(3) {
+    grid-column: span 2;
   }
 }

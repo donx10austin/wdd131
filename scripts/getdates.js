@@ -1,11 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const yearEl = document.getElementById('currentyear');
-  const lmEl = document.getElementById('lastModified');
+// Display current year
+const yearSpan = document.getElementById('currentyear');
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
 
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  if (lmEl) {
-    const m = new Date(document.lastModified || Date.now());
-    lmEl.textContent = `Last updated: ${m.toLocaleString(undefined, { dateStyle: 'long', timeStyle: 'short' })}`;
-  }
-});
+// Display last modified date in a nice format
+const lastModified = document.getElementById('lastModified');
+if (lastModified) {
+  const modifiedDate = new Date(document.lastModified);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  lastModified.textContent = `Last Modified: ${modifiedDate.toLocaleDateString(undefined, options)}`;
+}

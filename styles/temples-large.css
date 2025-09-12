@@ -1,17 +1,19 @@
-/* Header - horizontal layout */
+
 header {
   text-align: left;
-  overflow: hidden; /* clear floats */
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .logo {
   float: left;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 #mainNav {
   float: right;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 #mainNav li {
@@ -19,7 +21,7 @@ header {
   margin-left: 1.5rem;
 }
 
-/* Gallery - 3 in a row */
+
 .album figure {
   display: inline-block;
   width: 30%;

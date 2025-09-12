@@ -9,7 +9,7 @@ body {
   background: #fff;
 }
 
-
+/* HEADER */
 header {
   background: var(--purple);
   color: white;
@@ -24,11 +24,11 @@ header {
   font-weight: 700;
 }
 
-
+/* NAVIGATION */
 #mainNav {
   float: right;
   margin-top: 0.3rem;
-  width: 55%; 
+  width: 55%;
 }
 
 #mainNav ul {
@@ -37,7 +37,7 @@ header {
   padding: 0;
 
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 #mainNav li {
@@ -48,11 +48,17 @@ header {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.25rem;  
+  font-size: 1.25rem;
   letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
 
+/* ✅ required hover */
+#mainNav a:hover {
+  color: #ffd700; /* gold on hover */
+}
 
+/* PAGE TITLE */
 .page-title {
   text-align: center;
   margin: 1.25rem 0;
@@ -61,16 +67,17 @@ header {
   color: #222;
 }
 
-
+/* GALLERY - mobile (1 column grid) */
 .album {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   padding: 1rem;
+  justify-items: center;
 }
 
 .album figure {
-  display: block;
   width: 90%;
-  margin: 1rem auto;
   background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -87,19 +94,10 @@ header {
 .album figcaption {
   padding: 0.75rem;
   color: #444;
+  text-align: center;
 }
 
-
-@media screen and (min-width: 1024px) {
-  .album figure {
-    display: inline-block;
-    width: 30%;
-    margin: 0.5rem;
-    vertical-align: top;
-  }
-}
-
-
+/* FOOTER */
 footer {
   background: var(--purple);
   color: white;

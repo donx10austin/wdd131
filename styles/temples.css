@@ -1,93 +1,87 @@
-/* ===== RESET ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --purple: #4b006e;
 }
 
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
-  line-height: 1.5;
-  color: #333;
-  background: #fff;
 }
 
 /* ===== HEADER ===== */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #4b0082; /* purple */
-  color: #fff;
+  background: var(--purple);
+  color: white;
   padding: 1rem;
 }
 
-header h1 {
-  font-size: 1.4rem;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Hamburger (mobile) */
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
 #menuButton {
-  font-size: 1.8rem;
+  display: block;
   background: none;
   border: none;
   color: white;
+  font-size: 1.8rem;
   cursor: pointer;
 }
 
-#mainNav {
-  display: none; /* hidden by default on mobile */
+#mainNav ul {
+  display: none;
   flex-direction: column;
-  background: #4b0082;
+  list-style: none;
+  background: var(--purple);
+  padding: 1rem;
+  margin: 0;
+  gap: 1rem;
 }
 
-#mainNav ul {
-  list-style: none;
+#mainNav.show ul {
+  display: flex;
 }
 
 #mainNav a {
   color: white;
   text-decoration: none;
-  padding: 0.75rem 1rem;
-  display: block;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#mainNav a:hover,
-#mainNav a:focus {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* ===== MAIN ===== */
-main {
-  padding: 1rem;
-}
-
-main h1 {
+/* ===== PAGE TITLE ===== */
+.page-title {
   text-align: center;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
 }
 
+/* ===== GALLERY ===== */
 .album {
   display: grid;
-  grid-template-columns: 1fr; /* 1 column on mobile */
+  grid-template-columns: 1fr;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .album figure {
   text-align: center;
+  margin: 0;
 }
 
 .album img {
   width: 100%;
-  border-radius: 8px;
-  display: block;
+  border-radius: 6px;
 }
 
 /* ===== FOOTER ===== */
 footer {
-  margin-top: 2rem;
+  background: var(--purple);
+  color: white;
   text-align: center;
-  font-size: 0.9rem;
-  color: #555;
+  padding: 1rem;
+  margin-top: 2rem;
 }

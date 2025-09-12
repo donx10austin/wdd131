@@ -1,27 +1,27 @@
+/* apply only on screens >=1024px */
 @media (min-width: 1024px) {
   #menuButton {
-    display: none; /* hide hamburger on desktop */
-  }
-
-  #mainNav {
-    display: flex !important;
-    flex-direction: row;
-    background: none;
+    display: none;
   }
 
   #mainNav ul {
-    display: flex;
+    display: flex !important;
+    flex-direction: row;
     gap: 2rem;
-  }
-
-  #mainNav a {
+    background: none;
     padding: 0;
   }
 
+  .header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
   .album {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 2rem;
-    max-width: 1024px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
     margin: 0 auto;
   }
 }

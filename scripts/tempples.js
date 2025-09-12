@@ -1,13 +1,14 @@
-// Mobile menu toggle
+// === MOBILE MENU TOGGLE ===
 const menuButton = document.getElementById('menuButton');
 const mainNav = document.getElementById('mainNav');
 
 menuButton.addEventListener('click', () => {
   const isOpen = mainNav.style.display === 'flex';
   mainNav.style.display = isOpen ? 'none' : 'flex';
+  menuButton.setAttribute('aria-expanded', !isOpen);
 });
 
-// Footer info
+// === FOOTER INFO ===
 document.getElementById('copyrightYear')
   .textContent = new Date().getFullYear();
 

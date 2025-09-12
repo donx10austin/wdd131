@@ -1,7 +1,11 @@
-JS   // getdates.js
+document.addEventListener('DOMContentLoaded', () => {
+  const yearEl = document.getElementById('currentyear');
+  const lmEl = document.getElementById('lastModified');
 
-// Set current year
-document.getElementById("currentyear").textContent = new Date().getFullYear();
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Set last modified date
-document.getElementById("lastModified").textContent = `Last Modified: ${document.lastModified}`;
+  if (lmEl) {
+    const m = new Date(document.lastModified || Date.now());
+    lmEl.textContent = `Last updated: ${m.toLocaleString(undefined, { dateStyle: 'long', timeStyle: 'short' })}`;
+  }
+});

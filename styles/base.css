@@ -1,132 +1,152 @@
-CSS     /* ===== General Styles ===== */
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9fb;
-  color: #333;
-  line-height: 1.6;
+/* explicit color palette to match your screenshot */
+:root{
+  --top-start: #1f5668;     /* darker teal start */
+  --top-end:   #214f66;     /* teal-blue end */
+  --owner-yellow: #ffd54a;  /* name color */
+  --nav-bg: #2e2e2e;        /* dark nav strip */
+  --nav-sep: rgba(255,255,255,0.06); /* vertical divider */
+  --nav-hover: #219ebc;     /* hover color */
+  --page-bg: #f6f7f8;
+  --text: #222;
+  --card-radius: 10px;
+  --maxwidth: 1100px;
 }
 
-/* ===== Header ===== */
-header {
-  background-color: #4b0082; /* Deep purple */
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Lato",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:var(--page-bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-header h1 {
-  margin: 0.5rem 0;
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
+/* header wrapper */
+.site-header{
+  width:100%;
+  margin:0;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
 }
 
-header nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+/* top title bar */
+.title-bar{
+  background: linear-gradient(180deg, var(--top-start), var(--top-end));
+  padding: 14px 0;
+  border-bottom: 4px solid rgba(255,255,255,0.03);
 }
 
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+.title-bar .container{
+  max-width:var(--maxwidth);
+  margin:0 auto;
+  padding:0 18px;
+  text-align:center;
 }
 
-header nav a:hover {
-  color: #ffd700; /* Golden yellow hover */
+.title-bar h1{
+  color:#fff;
+  font-size:20px;
+  font-weight:700;
+  margin:0;
+  letter-spacing:.2px;
 }
 
-/* ===== Main Layout ===== */
-main {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  display: grid;
-  gap: 2rem;
+.title-bar .owner{
+  color: var(--owner-yellow);
+  margin-left:6px;
 }
 
-/* ===== Card Sections ===== */
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+/* bottom navigation bar (full width tiles) */
+.nav-bar{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr); /* four equal columns */
+  background: var(--nav-bg);
+  text-align:center;
+  align-items:stretch;
+  user-select:none;
+  border-top: 1px solid rgba(255,255,255,0.02);
 }
 
-.card h2 {
-  margin-top: 0;
-  color: #4b0082;
-  font-family: "Lato", sans-serif;
+/* each link fills its tile and has a subtle vertical divider */
+.nav-bar a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 8px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  border-left: 1px solid var(--nav-sep);
+  transition: background 180ms ease, color 180ms ease, transform 150ms ease;
 }
 
-/* Images */
-.card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin: 1rem 0;
+.nav-bar a:first-child{ border-left: none; }
+
+/* hover and focus */
+.nav-bar a:hover,
+.nav-bar a:focus{
+  background: var(--nav-hover);
+  color: var(--top-end);
+  transform: translateY(-2px);
+  outline: none;
 }
 
-/* Web Dev Resources List */
-.card ul {
-  list-style: none;
-  padding: 0;
+/* subtle active state for current page */
+.nav-bar a[aria-current="page"]{
+  background: rgba(255,255,255,0.03);
 }
 
-.card ul li {
-  margin: 0.5rem 0;
+/* main layout */
+main{
+  max-width:var(--maxwidth);
+  margin:18px auto;
+  padding:0 18px 48px;
+  display:grid;
+  gap:18px;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
 }
 
-.card ul a {
-  text-decoration: none;
-  color: #4b0082;
-  font-weight: 600;
+/* card styles */
+.card{
+  background:#fff;
+  border-radius:var(--card-radius);
+  padding:20px;
+  box-shadow: 0 6px 18px rgba(34,34,34,0.06);
 }
 
-.card ul a:hover {
-  text-decoration: underline;
+.card h2{
+  margin:0 0 12px 0;
+  font-size:18px;
+  color:var(--top-end);
+  text-align:center;
+  padding:8px 12px;
+  border-radius:8px;
 }
 
-/* Figure and Caption */
-figure {
-  margin: 0;
-  text-align: center;
+/* images */
+.profile-img{ width:120px; height:120px; object-fit:cover; border-radius:50%; display:block; margin:0 auto 12px; }
+.flag-img{ display:block; margin:0 auto 12px; max-width:150px; }
+
+/* resources list */
+.resources{ list-style:none; padding-left:0; margin:0; }
+.resources li{ margin:6px 0; }
+
+/* footer */
+footer{
+  text-align:center;
+  background: linear-gradient(180deg, var(--top-end), var(--top-start));
+  color:#fff;
+  padding:16px 18px;
+  margin-top:28px;
 }
 
-figcaption {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 0.5rem;
-}
+#lastModified{ margin-top:8px; font-size:0.92rem; font-style:italic; }
 
-/* ===== Footer ===== */
-footer {
-  background-color: #4b0082;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-footer p {
-  margin: 0.3rem 0;
-}
-
-/* ===== Responsive Design ===== */
-@media (min-width: 768px) {
-  main {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Nigeria section spans full width */
-  .card:nth-child(3) {
-    grid-column: span 2;
-  }
+/* responsive adjustments */
+@media (max-width:700px){
+  .title-bar h1{ font-size:18px; }
+  .nav-bar{ grid-template-columns: repeat(2,1fr); }
+  .nav-bar a{ padding:10px; font-size:14px; }
 }

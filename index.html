@@ -1,81 +1,91 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>WDD 131 – Dynamic Web Fundamentals – Austin Anumudu</title>
-  <meta name="description" content="WDD 131 – Dynamic Web Fundamentals project page for Austin Anumudu.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A photo album of beautiful temples around the world.">
   <meta name="author" content="Austin Anumudu">
+  <title>Temple Album</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Roboto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="styles/base.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/temples.css">
+  <link rel="stylesheet" href="css/temples-large.css" media="screen and (min-width: 1024px)">
+
+  <!-- JavaScript -->
+  <script src="scripts/temples.js" defer></script>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <!-- Top title bar -->
-    <div class="title-bar">
-      <h1>
-        WDD 131: <span id="course-title">Dynamic Web Fundamentals</span> -
-        <span class="owner">Austin Anumudu</span>
-      </h1>
-    </div>
 
-    <!-- Bottom nav bar -->
-    <nav class="nav-bar">
-      <a href="https://www.linkedin.com/in/anumudu-austin-donx10/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://byupw.instructure.com/" target="_blank" rel="noopener">Canvas</a>
-      <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7" target="_blank" rel="noopener">Scripture</a>
-      <a href="#">Final Project</a>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Temple Album</h1>
+
+    <!-- Hamburger (mobile only) -->
+    <button id="menuButton" aria-label="Menu">&#9776;</button>
+
+    <nav id="mainNav">
+      <a href="#">Home</a>
+      <a href="#">Old</a>
+      <a href="#">New</a>
+      <a href="#">Large</a>
+      <a href="#">Small</a>
     </nav>
   </header>
 
   <!-- ===== MAIN CONTENT ===== -->
   <main>
-    <section class="card">
-      <h2>About Me</h2>
-      <img src="images/realaustin.jpg" alt="Profile image of Austin Anumudu" class="profile-img">
-      <p>
-        My name is <strong>Austin Anumudu</strong> and I am from
-        <a href="https://en.wikipedia.org/wiki/Nigeria" target="_blank" rel="noopener">Lagos, Nigeria</a>.
-        I have a great passion for computer science and its application in solving real-world problems.
-        In my free time, I love watching <strong>Liverpool FC</strong> play because I am a fan, and also I love travelling, meeting new people and reading.
-      </p>
-    </section>
+    <h1>Temple Gallery</h1>
 
-    <section class="card">
-      <h2>Web Dev Resources</h2>
-      <ul class="resources">
-        <li><a href="https://dev.to/" target="_blank" rel="noopener">Dev.to</a></li>
-        <li><a href="https://www.smashingmagazine.com/" target="_blank" rel="noopener">Smashing Magazine</a></li>
-        <li><a href="https://css-tricks.com/" target="_blank" rel="noopener">CSS-Tricks</a></li>
-        <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools</a></li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>About Nigeria</h2>
+    <section class="album">
       <figure>
-        <img src="images/nigerianflag.png" alt="Official Flag of Nigeria" class="flag-img">
-        <figcaption>Official Flag of Nigeria</figcaption>
+        <img src="images/sandiego.jpg" alt="San Diego California Temple">
+        <figcaption>San Diego California Temple</figcaption>
       </figure>
-      <p>
-        Nigeria is the most populous country in West Africa and is known for its diverse cultures, Nollywood film industry, Afrobeat music, good people and delicious dishes like jollof rice and suya.
-      </p>
+      <figure>
+        <img src="images/saltlake.jpg" alt="Salt Lake Temple">
+        <figcaption>Salt Lake Temple</figcaption>
+      </figure>
+      <figure>
+        <img src="images/lagos.jpg" alt="Lagos Temple">
+        <figcaption>Lagos Temple</figcaption>
+      </figure>
+      <figure>
+        <img src="images/manila.jpg" alt="Manila Temple">
+        <figcaption>Manila Temple</figcaption>
+      </figure>
+      <figure>
+        <img src="images/rome.jpg" alt="Rome Italy Temple">
+        <figcaption>Rome Italy Temple</figcaption>
+      </figure>
+      <figure>
+        <img src="images/paris.jpg" alt="Paris France Temple">
+        <figcaption>Paris France Temple</figcaption>
+      </figure>
+      <figure>
+        <img src="images/mexicocity.jpg" alt="Mexico City Temple">
+        <figcaption>Mexico City Temple</figcaption>
+      </figure>
+      <figure>
+        <img src="images/provocity.jpg" alt="Provo City Center Temple">
+        <figcaption>Provo City Center Temple</figcaption>
+      </figure>
+      <figure>
+        <img src="images/accraghana.jpg" alt="Accra Ghana Temple">
+        <figcaption>Accra Ghana Temple</figcaption>
+      </figure>
     </section>
   </main>
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; <span id="currentyear"></span> 🌸 Austin Anumudu | Lagos, Nigeria 🌸</p>
-    <p id="lastModified"></p>
+    <p>&copy; <span id="copyrightYear"></span> 🌸 Austin Anumudu 🌸 Nigeria</p>
+    <p>Last Modification: <span id="lastModified"></span></p>
   </footer>
 
-  <script src="scripts/getdates.js" defer></script>
 </body>
 </html>

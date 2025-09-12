@@ -1,0 +1,23 @@
+/* Desktop / large screen styles */
+@media (min-width: 1024px) {
+  #menuButton {
+    display: none; /* hide hamburger on desktop */
+  }
+
+  #mainNav {
+    display: flex !important;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  #mainNav a {
+    padding: 0;
+  }
+
+  .album {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 2rem;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,88 @@
+/* === Base Reset === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  background: #fff;
+  color: #333;
+}
+
+/* === HEADER === */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4b0082; /* purple */
+  color: white;
+  padding: 1rem;
+}
+
+header h1 {
+  font-size: 1.4rem;
+}
+
+/* Hamburger (mobile) */
+#menuButton {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#mainNav {
+  display: none; /* hidden by default on mobile */
+  flex-direction: column;
+  background: #4b0082;
+}
+
+#mainNav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  display: block;
+}
+
+#mainNav a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* === MAIN === */
+main {
+  padding: 1rem;
+}
+
+main h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Grid album */
+.album {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 1rem;
+}
+
+.album figure {
+  text-align: center;
+}
+
+.album img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* === FOOTER === */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}

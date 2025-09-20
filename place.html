@@ -1,83 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nigeria Info Card</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script defer src="js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madagascar: The Red Island</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
+  <header>
+    <h1>Madagascar</h1>
+  </header>
 
-  <header>
-    <h1>Nigeria</h1>
-  </header>
+  <main>
+    <div id="container">
+      <section class="intro">
+        <h2>Welcome</h2>
+        <p>
+          Madagascar, often called the "Red Island" due to its rich red soil,
+          is home to breathtaking biodiversity, vibrant traditions, and
+          a fascinating history. Explore the wonders of this unique land!
+        </p>
+      </section>
 
-  <section class="hero">
-    <img 
-      src="images/nigeria-large.webp" 
-      srcset="
-        images/nigeria-small.webp 480w,
-        images/nigeria-medium.webp 768w,
-        images/nigeria-large.webp 1200w
-      "
-      sizes="(max-width: 480px) 480px,
-             (max-width: 768px) 768px,
-             1200px"
-      alt="Beautiful landscape from Nigeria" 
-      class="hero-image"
-    >
+      <section class="highlight">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Over 90% of its wildlife is found nowhere else on Earth.</li>
+          <li>A mix of African, Asian, and European cultural influences.</li>
+          <li>Stunning landscapes: rainforests, deserts, and coastlines.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
 
-    <div class="overlay">
-      <!-- Data box -->
-      <div class="data-box">
-        <h2>Data</h2>
-        <ul>
-          <li><strong>Area:</strong> 923,769 km²</li>
-          <li><strong>Population:</strong> 211,400,708 (2021 est.)</li>
-          <li><strong>Capital:</strong> Abuja</li>
-          <li><strong>Official Language:</strong> English</li>
-          <li><strong>Currency:</strong> Nigerian Naira (NGN)</li>
-          <li><strong>Calling Code:</strong> +234</li>
-          <li><strong>Internet TLD:</strong> .ng</li>
-        </ul>
-      </div>
-
-      <!-- Weather box -->
-      <div class="weather-box">
-        <h2>Weather</h2>
-        <!-- Mobile SVG icon -->
-        <div class="weather-icon-mobile">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
-            <circle cx="32" cy="32" r="12" fill="#FDB813" stroke="#2c2c2c" stroke-width="3"/>
-            <g stroke="#2c2c2c" stroke-width="3" stroke-linecap="round">
-              <line x1="32" y1="8" x2="32" y2="0"/>
-              <line x1="32" y1="64" x2="32" y2="56"/>
-              <line x1="8" y1="32" x2="0" y2="32"/>
-              <line x1="64" y1="32" x2="56" y2="32"/>
-              <line x1="50.9" y1="13.1" x2="56.6" y2="7.4"/>
-              <line x1="13.1" y1="50.9" x2="7.4" y2="56.6"/>
-              <line x1="50.9" y1="50.9" x2="56.6" y2="56.6"/>
-              <line x1="13.1" y1="13.1" x2="7.4" y2="7.4"/>
-            </g>
-            <path d="M48 44a10 10 0 0 0-9.5-10A12 12 0 0 0 16 38a8 8 0 0 0 0 16h32a8 8 0 0 0 0-16z"
-                  fill="#fff" stroke="#2c2c2c" stroke-width="3"/>
-          </svg>
-        </div>
-        <ul>
-          <li><strong>Temperature:</strong> <span id="temp">12</span> °C</li>
-          <li><strong>Conditions:</strong> Sunny</li>
-          <li><strong>Wind Speed:</strong> <span id="wind">8</span> km/h</li>
-          <li><strong>Wind Chill:</strong> <span id="windchill"></span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; <span id="year"></span> Nigeria</p>
-    <p>Last Modified: <span id="lastModified"></span></p>
-  </footer>
-
+  <footer>
+    <p id="last-modified">
+      Last Modification: <span id="last-modified-date"></span>
+    </p>
+  </footer>
 </body>
 </html>

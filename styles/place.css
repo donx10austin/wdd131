@@ -1,0 +1,135 @@
+:root {
+  --primary-color: #008751; /* Nigeria green or similar */
+  --secondary-color: #005f3f;
+  --text-color: #222;
+  --bg-overlay: rgba(255, 255, 255, 0.9);
+
+  --box-width: 260px;
+  --box-padding: 1rem;
+  --border-radius: 6px;
+  --shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+  --header-font-size: 2.5rem;
+  --subheader-font-size: 1.3rem;
+  --body-font-size: 1rem;
+
+  --spacing: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: var(--text-color);
+  font-size: var(--body-font-size);
+}
+
+header {
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: var(--spacing);
+  font-size: var(--header-font-size);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: var(--spacing);
+  left: var(--spacing);
+  right: var(--spacing);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.data-box,
+.weather-box {
+  background: var(--bg-overlay);
+  padding: var(--box-padding);
+  width: var(--box-width);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.data-box h2,
+.weather-box h2 {
+  background: var(--secondary-color);
+  color: white;
+  padding: 0.5rem;
+  font-size: var(--subheader-font-size);
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.weather-box h2::after {
+  content: " ⛅";
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  display: none;
+}
+
+.weather-icon-mobile {
+  display: none;
+  margin-bottom: var(--spacing);
+  text-align: center;
+}
+
+footer {
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: var(--spacing);
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+
+/* Large / Desktop view */
+@media (min-width: 700px) {
+  .overlay {
+    flex-direction: row;
+  }
+  .weather-box h2::after {
+    display: inline;
+  }
+  .weather-icon-mobile {
+    display: none;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 699px) {
+  .overlay {
+    flex-direction: column;
+    align-items: center;
+  }
+  .data-box,
+  .weather-box {
+    width: 90%;
+    margin-bottom: var(--spacing);
+  }
+  .weather-box h2::after {
+    content: "";
+  }
+  .weather-icon-mobile {
+    display: block;
+  }
+}

@@ -1,19 +1,26 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Last Modified Date
+// Display last modified date
+document.addEventListener("DOMContentLoaded", () => {
   const lastModified = document.lastModified;
-  document.getElementById('last-modified').textContent = lastModified;
+  document.getElementById("last-modified").textContent = lastModified;
 
-  // Wind chill calculation
-  const tempText = document.getElementById('temperature').textContent;
-  const temp = parseFloat(tempText.replace('°C', ''));
-  const windSpeed = 8; // km/h
+  // Example wind chill calculation (dummy values)
+  const temp = 32; // Celsius
+  const wind = 8;  // km/h
 
-  let windChill = 'N/A';
-  if (temp <= 10 && windSpeed > 4.8) {
-    windChill = (13.12 + 0.6215 * temp - 11.37 * Math.pow(windSpeed, 0.16) 
-                + 0.3965 * temp * Math.pow(windSpeed, 0.16)).toFixed(1) + '°C';
-  }
-
-  document.getElementById('windchill').textContent = windChill;
+  const windChill = calculateWindChill(temp, wind);
+  document.getElementById("windchill").textContent = windChill ? `${windChill}°C` : "N/A";
 });
+
+// Wind chill formula (Celsius version, simplified)
+function calculateWindChill(temp, windSpeed) {
+  if (temp <= 10 && windSpeed > 4.8) {
+    return (
+      13.12 +
+      0.6215 * temp -
+      11.37 * Math.pow(windSpeed, 0.16) +
+      0.3965 * temp * Math.pow(windSpeed, 0.16)
+    ).toFixed(1);
+  }
+  return null;
+}
 

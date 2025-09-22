@@ -3,88 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Nigeria, the Giant of Africa — explore its culture, weather, top attractions, and gallery showcasing the beauty of the nation.">
   <title>Nigeria - The Giant of Africa</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts (no @import) -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <!-- External CSS (in styles directory) -->
+  <link rel="stylesheet" href="styles/style.css">
 
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-  <!-- Script -->
-  <script src="script.js" defer></script>
+  <!-- External JS (in scripts directory) -->
+  <script src="scripts/script.js" defer></script>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <h1>NIGERIA</h1>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="info-row">
-      <!-- Data Section -->
-      <div class="info-box data-box">
-        <h3>Data</h3>
-        <p><strong>Area:</strong> 923,768 sq km</p>
-        <p><strong>Population:</strong> 229,152,298</p>
-        <p><strong>Capital:</strong> Abuja</p>
-        <p><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</p>
-        <p><strong>Currency:</strong> Nigerian Naira</p>
-        <p><strong>Time Zone:</strong> UTC+1</p>
-        <p><strong>Calling Code:</strong> +234</p>
-        <p><strong>Internet TLD:</strong> .ng</p>
-      </div>
+  <!-- MAIN -->
+  <main>
+    <section id="hero">
+      <div class="info-row">
 
-      <!-- Weather Section -->
-      <div class="info-box weather-box">
-        <h3>Weather</h3>
-        <img src="images/weather-sunny.svg" alt="Sunny weather icon" class="weather-icon">
-        <p><strong>Temperature:</strong> <span id="temperature">32°C</span></p>
-        <p><strong>Conditions:</strong> Sunny</p>
-        <p><strong>Wind:</strong> 8 km/h</p>
-        <p><strong>Wind Chill:</strong> <span id="windchill"></span></p>
-      </div>
-    </div>
-  </section>
+        <!-- Data box -->
+        <div class="info-box data-box">
+          <h3>Data</h3>
+          <p><strong>Area:</strong> 923,768 sq km</p>
+          <p><strong>Population:</strong> 229,152,298</p>
+          <p><strong>Capital:</strong> Abuja</p>
+          <p><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</p>
+          <p><strong>Currency:</strong> Nigerian Naira</p>
+          <p><strong>Time Zone:</strong> UTC+1</p>
+          <p><strong>Calling Code:</strong> +234</p>
+          <p><strong>Internet TLD:</strong> .ng</p>
+        </div>
 
-  <!-- Top Attractions -->
-  <section id="attractions">
-    <h2>Top Attractions</h2>
-    <div class="attraction-cards">
-      <div class="card">
-        <img src="images/zuma.jpg" alt="Zuma Rock">
-        <h3>Zuma Rock</h3>
-        <p>Iconic monolith near Abuja.</p>
-      </div>
-      <div class="card">
-        <img src="images/oluma.jpg" alt="Olumo Rock">
-        <h3>Olumo Rock</h3>
-        <p>Historic rock formation in Abeokuta.</p>
-      </div>
-      <div class="card">
-        <img src="images/yankari.jpg" alt="Yankari National Park">
-        <h3>Yankari National Park</h3>
-        <p>Wildlife sanctuary and adventure spot.</p>
-      </div>
-    </div>
-  </section>
+        <!-- Weather box -->
+        <div class="info-box weather-box">
+          <h3>Weather</h3>
+          <picture>
+            <source srcset="images/weather-icon.webp" type="image/webp">
+            <img src="images/weather-icon.png" alt="Sunny weather icon" class="weather-icon">
+          </picture>
+          <p><strong>Temperature:</strong> <span id="temperature">32°C</span></p>
+          <p><strong>Conditions:</strong> Sunny</p>
+          <p><strong>Wind:</strong> 8 km/h</p>
+          <p><strong>Wind Chill:</strong> <span id="windchill"></span></p>
+        </div>
 
-  <!-- Gallery -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="images/lagosnow.jpg" alt="Lagos city view" loading="lazy">
-      <img src="images/naigra.jpg" alt="Beautiful landscape" loading="lazy">
-      <img src="images/abuja.jpg" alt="Abuja cityscape" loading="lazy">
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- Footer -->
+    <section id="attractions">
+      <h2>Top Attractions</h2>
+      <div class="attraction-cards">
+
+        <div class="card">
+          <picture>
+            <source srcset="images/zuma.webp" type="image/webp">
+            <img src="images/zuma.jpg" alt="Zuma Rock">
+          </picture>
+          <h3>Zuma Rock</h3>
+          <p>Iconic monolith near Abuja.</p>
+        </div>
+
+        <div class="card">
+          <picture>
+            <source srcset="images/oluma.webp" type="image/webp">
+            <img src="images/oluma.jpg" alt="Olumo Rock">
+          </picture>
+          <h3>Olumo Rock</h3>
+          <p>Historic rock formation in Abeokuta.</p>
+        </div>
+
+        <div class="card">
+          <picture>
+            <source srcset="images/yankari.webp" type="image/webp">
+            <img src="images/yankari.jpg" alt="Yankari National Park">
+          </picture>
+          <h3>Yankari National Park</h3>
+          <p>Wildlife sanctuary and adventure spot.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <picture>
+          <source srcset="images/lagosnow.webp" type="image/webp">
+          <img src="images/lagosnow.jpg" alt="Lagos city view" loading="lazy">
+        </picture>
+        <picture>
+          <source srcset="images/naigra.webp" type="image/webp">
+          <img src="images/naigra.jpg" alt="Beautiful landscape" loading="lazy">
+        </picture>
+        <picture>
+          <source srcset="images/abuja.webp" type="image/webp">
+          <img src="images/abuja.jpg" alt="Abuja cityscape" loading="lazy">
+        </picture>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer>
     <p>&copy;2025 Austin Anumudu | Nigeria</p>
     <p>Last modified: <span id="last-modified"></span></p>

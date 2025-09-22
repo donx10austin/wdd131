@@ -1,125 +1,108 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Global variables */
+:root {
+  --primary-color: #008000; /* Green for Nigeria */
+  --secondary-color: #f4f4f4;
+  --text-color: #333;
 }
 
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
 }
 
 /* Header */
 header {
+  background-color: var(--primary-color);
   text-align: center;
-  padding: 30px 0;
-  background: #fff;
-  border-bottom: 4px solid #008751;
+  padding: 1.5rem 0;
+  position: relative;
 }
 
 header h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #008751;
-  text-transform: uppercase;
-  letter-spacing: 3px;
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: white;
 }
 
-/* Hero Section */
-#hero {
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
+/* Decorative line using ::after */
+header h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: white;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
 }
 
+/* Info row */
 .info-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
 }
 
 .info-box {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 300px;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  flex: 1 1 300px;
+  max-width: 400px;
 }
 
 .info-box h3 {
-  font-size: 1.5rem;
-  color: #008751;
-  margin-bottom: 15px;
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary-color);
 }
 
 .weather-icon {
-  width: 40px;
   display: block;
-  margin: 10px 0;
+  width: 60px;
+  margin: 0.5rem 0;
 }
 
-/* Top Attractions */
-#attractions {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-#attractions h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #008751;
-}
-
+/* Attractions */
 .attraction-cards {
   display: flex;
-  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-  width: 250px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  max-width: 250px;
   text-align: center;
 }
 
 .card img {
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 /* Gallery */
-#gallery {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-#gallery h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #008751;
-}
-
 .gallery-grid {
   display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: nowrap;
   overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-behavior: smooth;
 }
 
 .gallery-grid img {
-  width: 300px;
-  height: auto;
+  height: 200px;
   border-radius: 10px;
   flex-shrink: 0;
 }
@@ -127,9 +110,20 @@ header h1 {
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background: #008751;
-  color: #fff;
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem;
   font-size: 0.9rem;
-  margin-top: 40px;
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .info-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

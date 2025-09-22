@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nigeria — Travel Guide</title>
+  <title>Madagascar — Travel Guide</title>
 
   <!-- Meta Info -->
-  <meta name="description" content="Explore Nigeria — travel guide with data, weather, wildlife, and cultural highlights." />
-  <meta name="author" content="Austin Anumudu" />
+  <meta name="description" content="Explore Madagascar — travel guide with data, weather, wildlife (ring-tailed lemurs), and cultural highlights." />
+  <meta name="author" content="Austin Anumudu (Adapted for Madagascar)" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,85 +23,55 @@
 <body>
   <!-- Banner -->
   <header class="banner">
-    <h1>Nigeria</h1>
+    <h1>Madagascar</h1>
   </header>
 
   <!-- Hero -->
   <main>
-    <section class="hero" aria-label="Hero image of Nigeria">
-      <picture>
-        <!-- WebP sources -->
-        <source srcset="images/hero-small.webp" media="(max-width:600px)" type="image/webp">
-        <source srcset="images/hero-medium.webp" media="(max-width:1024px)" type="image/webp">
-        <source srcset="images/hero-large.webp" type="image/webp">
-        <!-- JPG fallbacks -->
-        <source srcset="images/hero-small.jpg" media="(max-width:600px)">
-        <source srcset="images/hero-medium.jpg" media="(max-width:1024px)">
-        <!-- Final fallback -->
-        <img src="images/lemurs.jpg" alt="Lemurs in Nigeria" width="1600" height="600">
-      </picture>
-
-      <!-- Data Box -->
-      <div class="info-box data-box">
-        <h2>Data</h2>
-        <ul>
-          <li><strong>Area:</strong> 923,768 sq km</li>
-          <li><strong>Population:</strong> ~250,000,000</li>
-          <li><strong>Capital:</strong> Abuja</li>
-          <li><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</li>
-          <li><strong>Currency:</strong> Nigerian Naira (NGN)</li>
-          <li><strong>Time Zone:</strong> GMT+1</li>
-          <li><strong>Calling Code:</strong> +234</li>
-          <li><strong>Internet TLD:</strong> .ng</li>
-        </ul>
+    <section class="hero" aria-label="Ring-tailed lemurs in Madagascar">
+      <div class="hero-image-container">
+        <picture>
+          <!-- WebP sources -->
+          <source srcset="images/lemursone_madagascar.webp" media="(max-width:600px)" type="image/webp">
+          <source srcset="images/lemursfour_madagascar.webp" media="(max-width:1024px)" type="image/webp">
+          <source srcset="images/lemurstwo_madagascar.webp" type="image/webp">
+          <!-- JPG fallbacks -->
+          <source srcset="images/lemurs_madagascar.jpg" media="(max-width:600px)">
+          <source srcset="images/lemurs_madagascar.jpg" media="(max-width:1024px)">
+          <!-- Final fallback -->
+          <img src="images/lemurs_madagascar.jpg" alt="Ring-tailed lemurs in Madagascar" width="1600" height="600">
+        </picture>
       </div>
 
-      <!-- Weather Box -->
-      <aside class="info-box weather-box" aria-labelledby="weather-heading">
-        <h2 id="weather-heading">
-          Weather
-          <span class="icon desktop">⛅</span>
-          <span class="icon mobile" aria-hidden="true">
-            <!-- SVG -->
-            <svg width="22" height="22" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
-              <circle cx="20" cy="18" r="8" fill="#FFD93B" />
-              <path d="M46 36a12 12 0 0 0-23.4-4.2A8 8 0 0 0 24 52h22a8 8 0 0 0 0-16z" fill="#90CAF9"/>
-            </svg>
-          </span>
-        </h2>
-        <ul>
-          <li><strong>Temperature:</strong> <span id="tempDisplay">10</span> °C</li>
-          <li><strong>Conditions:</strong> Partly Cloudy</li>
-          <li><strong>Wind:</strong> <span id="windDisplay">5</span> km/h</li>
-          <li><strong>Wind Chill:</strong> <span id="windchill">—</span></li>
-        </ul>
-      </aside>
-    </section>
+      <div class="info-container">
+        <!-- Data Box -->
+        <div class="info-box data-box">
+          <h2>Data</h2>
+          <ul>
+            <li><strong>Area:</strong> 587,041 sq km (Note: Specific area data not in provided sources, typical value used.)</li>
+            <li><strong>Population:</strong> ~28,900,000 (Note: Specific population data not in provided sources, typical value used.)</li>
+            <li><strong>Capital:</strong> Antananarivo</li>
+            <li><strong>Wildlife:</strong> Endemic lemur species (e.g., Ring-tailed lemur, Hairy-eared dwarf lemur) <sup custom='true' origin='6' new='1' >6</sup></li>
+            <li><strong>Key Chemical Compound:</strong> Protocatechuic acid (O=C(O)c1ccc(O)cc1) - found in various plants within the ecosystem, contributing to biological activity <sup custom='true' origin='7' new='2' >7</sup><sup custom='true' origin='8' new='3' >8</sup></li>
+          </ul>
+        </div>
 
-    <!-- Wildlife Gallery -->
-    <section class="gallery" aria-label="Wildlife images from Nigeria">
-      <h2>Wildlife in Nigeria</h2>
-      <div class="gallery-grid">
-        <figure>
-          <img src="images/lemursone.jpg" alt="Lemur sitting on a tree branch" loading="lazy">
-          <figcaption>Lemur in its natural habitat</figcaption>
-        </figure>
-        <figure>
-          <img src="images/lemurstwo.jpg" alt="Group of lemurs on the ground" loading="lazy">
-          <figcaption>Playful lemur group</figcaption>
-        </figure>
-        <figure>
-          <img src="images/lemursfour.jpg" alt="Close-up of a lemur" loading="lazy">
-          <figcaption>Close-up view</figcaption>
-        </figure>
+        <!-- Weather Box (Example) -->
+        <div class="info-box weather-box">
+          <h2>Weather</h2>
+          <p>Madagascar's climate varies significantly, with tropical coasts, an arid south, and temperate highlands. Weather data influences biological processes and ecosystem dynamics <sup custom='true' origin='6' new='1' >6</sup>.</p>
+          <ul>
+            <li><strong>Current Temperature:</strong> 25°C (Example)</li>
+            <li><strong>Humidity:</strong> 70% (Example)</li>
+            <li><strong>Seasonal Highlights:</strong> Dry season (May-October) ideal for wildlife viewing; Wet season (November-April) brings lush landscapes.</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>©<span id="year"></span> 🌸 Austin Anumudu 🌸 Nigeria</p>
-    <p>Last Modification: <span id="lastModified"></span></p>
+    <p>&copy; 2025 Madagascar Travel Guide</p>
   </footer>
 </body>
 </html>

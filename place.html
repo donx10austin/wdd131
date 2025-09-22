@@ -3,33 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ✅ Meta description -->
   <meta name="description" content="Discover Nigeria - The Giant of Africa. Explore its culture, people, weather, and top attractions.">
 
   <title>Nigeria - The Giant of Africa</title>
 
-  <!-- ✅ Google Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- ✅ External CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="styles/style.css">
 
-  <!-- ✅ Favicon -->
+  <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-  <!-- ✅ External JS -->
+  <!-- JS -->
   <script src="scripts/script.js" defer></script>
 </head>
 <body>
 
-  <!-- ✅ Header -->
+  <!-- Header -->
   <header>
     <h1>NIGERIA</h1>
   </header>
 
   <main>
-    <!-- ✅ Data + Weather Section -->
+    <!-- Data & Weather -->
     <section id="hero">
       <div class="info-row">
         <div class="info-box data-box">
@@ -46,9 +44,9 @@
 
         <div class="info-box weather-box">
           <h3>Weather</h3>
-          <!-- ✅ SVG for mobile, PNG/WebP for desktop -->
+          <!-- Mobile SVG, Desktop WebP, fallback PNG -->
           <picture>
-            <source media="(max-width: 768px)" srcset="images/weather-icon.svg" type="image/svg+xml">
+            <source media="(max-width:768px)" srcset="images/weather-icon.svg" type="image/svg+xml">
             <source srcset="images/weather-icon.webp" type="image/webp">
             <img src="images/weather-icon.png" alt="Sunny weather icon" class="weather-icon">
           </picture>
@@ -60,7 +58,7 @@
       </div>
     </section>
 
-    <!-- ✅ Attractions Section -->
+    <!-- Attractions -->
     <section id="attractions">
       <h2>Top Attractions</h2>
       <div class="attraction-cards">
@@ -82,22 +80,22 @@
       </div>
     </section>
 
-    <!-- ✅ Gallery Section with srcset -->
+    <!-- Gallery -->
     <section id="gallery">
       <h2>Gallery</h2>
       <div class="gallery-grid">
         <picture>
-          <source srcset="images/lagosnow-small.webp" media="(max-width: 768px)" type="image/webp">
+          <source media="(max-width:768px)" srcset="images/lagosnow-small.webp" type="image/webp">
           <source srcset="images/lagosnow.webp" type="image/webp">
-          <img src="images/lagosnow.jpg" alt="Lagos city view" loading="lazy">
+          <img src="images/lagosshow.jpg" alt="Lagos city view" loading="lazy">
         </picture>
         <picture>
-          <source srcset="images/naigra-small.webp" media="(max-width: 768px)" type="image/webp">
+          <source media="(max-width:768px)" srcset="images/naigra-small.webp" type="image/webp">
           <source srcset="images/naigra.webp" type="image/webp">
           <img src="images/naigra.jpg" alt="Beautiful landscape" loading="lazy">
         </picture>
         <picture>
-          <source srcset="images/abuja-small.webp" media="(max-width: 768px)" type="image/webp">
+          <source media="(max-width:768px)" srcset="images/abuja-small.webp" type="image/webp">
           <source srcset="images/abuja.webp" type="image/webp">
           <img src="images/abuja.jpg" alt="Abuja cityscape" loading="lazy">
         </picture>
@@ -105,10 +103,11 @@
     </section>
   </main>
 
- <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <p>&copy;2025 Austin Anumudu | Nigeria</p>
+    <p id="copyright"></p>
     <p>Last modified: <span id="last-modified"></span></p>
+    <p class="desktop-only">😊</p>
   </footer>
 
 </body>

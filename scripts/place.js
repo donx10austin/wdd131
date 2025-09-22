@@ -1,34 +1,47 @@
-// Update the last modified date dynamically
-document.addEventListener('DOMContentLoaded', () => {
-    const lastModifiedElem = document.getElementById('last-modified');
-    if (lastModifiedElem) {
-        const lastModified = new Date(document.lastModified);
-        const formattedDate = lastModified.toLocaleString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        });
-        lastModifiedElem.textContent = `Last modified: ${formattedDate}`;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* White background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Hides any overflow to prevent scrollbars */
+}
 
-    // Temperature toggle example
-    const tempElem = document.querySelector('.temperature');
-    if (tempElem) {
-        tempElem.style.cursor = 'pointer';
-        tempElem.addEventListener('click', () => {
-            let current = tempElem.textContent;
-            if (current.includes('°C')) {
-                let c = parseFloat(current);
-                let f = (c * 9/5 + 32).toFixed(1);
-                tempElem.textContent = `${f}°F`;
-            } else {
-                let f = parseFloat(current);
-                let c = ((f - 32) * 5/9).toFixed(1);
-                tempElem.textContent = `${c}°C`;
-            }
-        });
-    }
-});
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-shape {
+    position: absolute;
+    bottom: 0; /* Aligns to the bottom of the container */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the shape horizontally */
+    width: 80vw;
+    height: 80vh;
+    background-color: #000000; /* Black color */
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+}
+
+.secondary-shape {
+    position: absolute;
+    top: 10%; /* Positions it above the main shape */
+    left: 10%;
+    width: 40vw;
+    height: 60vh;
+    background-color: #000000; /* Black color */
+    border-top-left-radius: 70% 70%;
+    border-top-right-radius: 70% 70%;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    transform: rotate(20deg); /* Rotates to match the wireframe's angle */
+}

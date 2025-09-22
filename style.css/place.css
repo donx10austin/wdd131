@@ -1,145 +1,104 @@
 :root {
-    --primary-color: red;
-    --background-color: #f4f4f4;
+    /* Color Scheme */
+    --color-primary: #006747; /* Pakistan Green */
+    --color-secondary: #fff;
+    --color-accent: #1a1a1a;
+
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Dosis', sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: var(--background-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-accent);
 }
 
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+/* --- Global Layout and Components --- */
 .container {
-    max-width: 900px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.header {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 20px;
+.cta-button {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- Mobile Styles (Default) --- */
+.header-container, .hero-container, .testimonial-container, .final-cta-container, .footer-container {
+    flex-direction: column;
+}
+
+.hero-section {
+    padding: 40px 0;
     text-align: center;
-    font-size: 2em;
-    font-weight: bold;
-    position: relative;
 }
 
-.header::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: white;
-    margin: 10px auto 0;
-}
-
-.image-section {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.image-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.main-content {
+.service-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
 }
 
-.card {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    min-width: 300px;
+.footer-column {
+    margin-bottom: 20px;
 }
 
-.card h2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 0;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
-}
-
-.card h2 svg {
-    height: 24px;
-    width: 24px;
-}
-
-.data-item, .weather-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    padding-bottom: 5px;
-    border-bottom: 1px dotted #ccc;
-}
-
-.data-item:last-child, .weather-item:last-child {
-    border-bottom: none;
-}
-
-.weather-main {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.temperature {
-    font-size: 3em;
-    font-weight: bold;
-    color: #333;
-}
-
-.weather-details .weather-item {
-    justify-content: flex-start;
-    gap: 10px;
-}
-
-.weather-details .weather-item svg {
-    height: 20px;
-    width: 20px;
-}
-
-.footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #777;
-    border-top: 1px solid #ddd;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* Media Query for smaller screens (e.g., phones) */
-@media (max-width: 768px) {
-    .container {
-        margin: 10px;
-        padding: 10px;
+/* --- Media Query for Larger Screens --- */
+@media (min-width: 768px) {
+    .header-container, .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .main-content {
-        flex-direction: column;
+    .hero-container, .testimonial-container, .final-cta-container {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 40px;
+    }
+    
+    .hero-container {
+        flex-direction: row;
+    }
+    
+    .testimonial-container {
+        flex-direction: row-reverse;
     }
 
-    .card {
-        min-width: 100%;
+    .service-grid {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .footer-container {
+        align-items: flex-start;
+    }
+}
+
+/* CSS for the weather icon using a pseudo-element */
+.weather-heading::after {
+    content: " ☀️"; /* Adds a space and the sun emoji after the text */
+    font-size: 1.2em; /* Makes the emoji slightly larger than the heading text */
+    margin-left: 10px; /* Provides spacing */
+}
+
+/* Media query to hide the pseudo-element on smaller screens, as per the wireframe */
+@media (max-width: 767px) {
+    .weather-heading::after {
+        content: none; /* Hides the pseudo-element */
     }
 }

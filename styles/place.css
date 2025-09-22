@@ -1,29 +1,82 @@
-/* ===== Responsive layout adjustments (mobile-first adjustments) ===== */
-@media (max-width: 600px) {
-  /* turn overlay boxes into static flow elements stacked under hero for readability */
-  .overlay {
-    position: static;
-    max-width: none;
-    margin: 0.8rem;
-  }
-
-  .data-box, .weather-box {
-    border-left-width: 4px;
-  }
-
-  .main-nav { flex-direction: column; gap:0.5rem; }
-  .facts-grid { grid-template-columns: 1fr; }
-
-  /* Hide overlay data on small screens */
-  .overlay.data-box { display: none; }
+/* Reset */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #222;
 }
 
-/* medium screens: ensure hero overlay has breathing room */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .overlay { padding: 0.85rem; max-width: 300px; }
+/* Banner */
+.banner {
+  background: #c8102e; /* red */
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
 }
 
-/* Hide repeated card data on large screens */
-@media (min-width: 601px) {
-  section[aria-label="Country quick facts"] { display: none; }
+.banner h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+}
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlay boxes */
+.info-box {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  width: 260px;
+}
+
+.info-box h2 {
+  background: #137a39; /* green */
+  color: white;
+  margin: -1rem -1rem 0.5rem -1rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Data box: top far left */
+.data-box {
+  top: 0;
+  left: 0;
+  margin: 15px;
+}
+
+/* Weather box: bottom far right */
+.weather-box {
+  bottom: 0;
+  right: 0;
+  margin: 15px;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  margin: 0.3rem 0;
+}
+
+/* Footer */
+footer {
+  background: #c8102e;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
 }

@@ -1,89 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover Nigeria - The Giant of Africa. Explore its culture, people, weather, and top attractions.">
-  
-  <!-- Student Name -->
-  <meta name="author" content="Austin Anumudu">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Nigeria - The Giant of Africa. Explore its culture, people, weather, and top attractions.">
+  
+    <meta name="author" content="Austin Anumudu">
 
-  <title>Nigeria - The Giant of Africa | WDD131 Project</title>
- <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <title>Nigeria - The Giant of Africa | WDD131 Project</title>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <script src="scripts/script.js" defer></script>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <script src="scripts/script.js" defer></script>
 </head>
-  
+  
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>NIGERIA</h1>
-  </header>
+    <header>
+    <h1>NIGERIA</h1>
+  </header>
 
-  <main>
-    <!-- Data & Weather -->
-    <section id="hero">
-      <div class="info-row">
-        <div class="info-box data-box">
-          <h3>Data</h3>
-          <p><strong>Area:</strong> 923,768 sq km</p>
-          <p><strong>Population:</strong> 229,152,298</p>
-          <p><strong>Capital:</strong> Abuja</p>
-          <p><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</p>
-          <p><strong>Currency:</strong> Naira</p>
-          <p><strong>Time Zone:</strong> GMT+1</p>
-          <p><strong>Calling Code:</strong> +234</p>
-          <p><strong>Internet TLD:</strong> .ng</p>
-        </div>
+  <main>
+        <section id="hero">
+      <div class="info-row">
+        <div class="info-box data-box">
+          <h3>Data</h3>
+          <p><strong>Area:</strong> 923,768 sq km</p>
+          <p><strong>Population:</strong> 229,152,298</p>
+          <p><strong>Capital:</strong> Abuja</p>
+          <p><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</p>
+          <p><strong>Currency:</strong> Naira</p>
+          <p><strong>Time Zone:</strong> GMT+1</p>
+          <p><strong>Calling Code:</strong> +234</p>
+          <p><strong>Internet TLD:</strong> .ng</p>
+        </div>
 
-        <div class="info-box weather-box">
-          <h3>Weather</h3>
-          <picture>
-            <source media="(max-width:768px)" srcset="images/29224_sun_icon.svg" type="image/svg+xml">
-            <source srcset="images/29224_sun_icon.webp" type="image/webp">
-            <img src="images/sun.png" alt="Sunny weather icon" class="weather-icon">
-          </picture>
-          <p><strong>Temperature:</strong> <span id="temperature">32</span>°C</p>
-          <p><strong>Conditions:</strong> Sunny</p>
-          <p><strong>Wind:</strong> <span id="wind">8</span> km/h</p>
-          <p><strong>Wind Chill:</strong> <span id="windchill"></span></p>
-        </div>
-      </div> <!-- end info-row -->
-    </section> <!-- end hero -->
+        <div class="info-box weather-box">
+          <h3>Weather</h3>
+          <picture>
+            <source media="(max-width:768px)" srcset="images/29224_sun_icon.svg" type="image/svg+xml">
+            <source srcset="images/29224_sun_icon.webp" type="image/webp">
+            <img src="images/weather.png" alt="Sunny weather icon" class="weather-icon">
+          </picture>
+          <p><strong>Temperature:</strong> <span id="temperature">32</span>°C</p>
+          <p><strong>Conditions:</strong> Sunny</p>
+          <p><strong>Wind:</strong> <span id="wind">8</span> km/h</p>
+          <p><strong>Wind Chill:</strong> <span id="windchill"></span></p>
+        </div>
+      </div>     </section>         <section id="attractions">
+      <h2>Top Attractions</h2>
+      <div class="attraction-cards">
+        <div class="card">
+          <img src="images/zuma.webp" alt="Zuma Rock" loading="lazy">
+          <h3>Zuma Rock</h3>
+          <p>Iconic monolith near Abuja.</p>
+        </div>
+        <div class="card">
+          <img src="images/oluma.webp" alt="Olumo Rock" loading="lazy">
+          <h3>Olumo Rock</h3>
+          <p>Historic rock formation in Abeokuta.</p>
+        </div>
+        <div class="card">
+          <img src="images/yankari.webp" alt="Yankari National Park" loading="lazy">
+          <h3>Yankari National Park</h3>
+          <p>Wildlife sanctuary and adventure spot.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Attractions -->
-    <section id="attractions">
-      <h2>Top Attractions</h2>
-      <div class="attraction-cards">
-        <div class="card">
-          <img src="images/zuma.webp" alt="Zuma Rock" loading="lazy">
-          <h3>Zuma Rock</h3>
-          <p>Iconic monolith near Abuja.</p>
-        </div>
-        <div class="card">
-          <img src="images/oluma.webp" alt="Olumo Rock" loading="lazy">
-          <h3>Olumo Rock</h3>
-          <p>Historic rock formation in Abeokuta.</p>
-        </div>
-        <div class="card">
-          <img src="images/yankari.webp" alt="Yankari National Park" loading="lazy">
-          <h3>Yankari National Park</h3>
-          <p>Wildlife sanctuary and adventure spot.</p>
-        </div>
-      </div>
-    </section>
-
- 
-  <!-- Footer -->
-  <footer>
-    <p id="copyright">&copy;2025 Austin Anumudu | Nigeria</p>
-    <p>Last modified: <span id="last-modified"></span></p>
-    <p class="desktop-only">😊</p>
-  </footer>
+    <footer>
+    <p id="copyright">&copy;2025 Austin Anumudu | Nigeria</p>
+    <p>Last modified: <span id="last-modified"></span></p>
+    <p class="desktop-only">😊</p>
+  </footer>
 
 </body>
 </html>

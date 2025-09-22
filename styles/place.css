@@ -5,6 +5,7 @@ body, h1, h2, p, ul, li {
 }
 body {
   font-family: Arial, sans-serif;
+  line-height: 1.5;
   background: #fff;
   color: #222;
 }
@@ -16,11 +17,9 @@ body {
   text-align: center;
   padding: 1rem;
 }
-
 .banner h1 {
   font-size: 2rem;
   font-weight: bold;
-  margin: 0;
 }
 
 /* Hero section */
@@ -33,43 +32,47 @@ body {
   display: block;
 }
 
-/* Overlay boxes */
+/* Overlay info boxes */
 .info-box {
   position: absolute;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   width: 260px;
 }
-
 .info-box h2 {
   background: #137a39; /* green */
-  color: white;
+  color: #fff;
   margin: -1rem -1rem 0.5rem -1rem;
   padding: 0.5rem;
   font-size: 1.1rem;
 }
 
-/* Data box: top far left */
+/* Data box top-left */
 .data-box {
   top: 0;
   left: 0;
   margin: 15px;
 }
 
-/* Weather box: bottom far right */
+/* Weather box bottom-right */
 .weather-box {
   bottom: 0;
   right: 0;
   margin: 15px;
 }
 
-ul {
-  list-style: none;
-}
-li {
-  margin: 0.3rem 0;
+ul { list-style: none; }
+li { margin: 0.3rem 0; }
+
+/* Weather icon display rules */
+.icon.desktop { display: inline; }
+.icon.mobile { display: none; }
+
+@media (max-width: 600px) {
+  .icon.desktop { display: none; }
+  .icon.mobile { display: inline; }
 }
 
 /* Footer */

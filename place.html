@@ -4,124 +4,73 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nigeria — Travel Guide</title>
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Script loaded with defer -->
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Nigeria — Travel Guide</h1>
-      <nav class="main-nav" aria-label="Main Navigation">
-        <a href="#about">About</a>
-        <a href="#country">Country</a>
-        <a href="#data">Data</a>
-        <a href="#weather">Weather</a>
-      </nav>
-    </div>
+  <!-- Banner -->
+  <header class="banner">
+    <h1>Nigeria</h1>
   </header>
 
-  <!-- HERO: responsive picture (WebP preferred, JPG fallback) -->
-  <section class="hero" aria-label="Hero">
-    <picture>
-      <!-- WebP sources -->
-      <source srcset="images/hero-small.webp" media="(max-width:600px)" type="image/webp">
-      <source srcset="images/hero-medium.webp" media="(max-width:1024px)" type="image/webp">
-      <source srcset="images/hero-large.webp" type="image/webp">
+  <!-- Hero -->
+  <main>
+    <section class="hero" aria-label="Hero image of Nigeria">
+      <picture>
+        <!-- WebP sources -->
+        <source srcset="images/hero-small.webp" media="(max-width:600px)" type="image/webp">
+        <source srcset="images/hero-medium.webp" media="(max-width:1024px)" type="image/webp">
+        <source srcset="images/hero-large.webp" type="image/webp">
 
-      <!-- JPG fallbacks -->
-      <source srcset="images/hero-small.jpg" media="(max-width:600px)">
-      <source srcset="images/hero-medium.jpg" media="(max-width:1024px)">
-      <!-- final img fallback -->
-      <img src="images/nigerialaagos.jpg" alt="Scenic view representative of the country" width="1600" height="600">
-    </picture>
+        <!-- JPG fallbacks -->
+        <source srcset="images/hero-small.jpg" media="(max-width:600px)">
+        <source srcset="images/hero-medium.jpg" media="(max-width:1024px)">
+        <!-- final fallback -->
+        <img src="images/madagascar-lemurs.jpg" alt="Lemurs in Madagascar" width="1600" height="600">
+      </picture>
 
-    <!-- Overlayed boxes (match wireframe) -->
-    <div class="overlay data-box" id="data">
-      <h2>Country Data</h2>
-      <ul>
-        <li><strong>Capital:</strong> Abuja</li>
-        <li><strong>Area:</strong> 923,768 km²</li>
-        <li><strong>Population:</strong> 250M (estimate)</li>
-        <li><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</li>
-        <li><strong>Currency:</strong> Nigerian Naira (NGN)</li>
-        <li><strong>Time zone:</strong> GMT+1</li>
-      </ul>
-    </div>
-
-    <aside class="overlay weather-box" id="weather" aria-labelledby="weather-heading">
-      <h2 id="weather-heading">
-        Weather
-        <!-- Inline SVG (only shown on small screens via CSS) -->
-        <span class="weather-svg" aria-hidden="true">
-          <!-- simple partly-cloudy svg -->
-          <svg width="22" height="22" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <circle cx="20" cy="18" r="8" fill="#FFD93B" />
-            <path d="M46 36a12 12 0 0 0-23.4-4.2A8 8 0 0 0 24 52h22a8 8 0 0 0 0-16z" fill="#90CAF9"/>
-          </svg>
-        </span>
-      </h2>
-
-      <ul class="weather-list">
-        <li><strong>Temperature:</strong> <span id="tempDisplay">10</span> °C</li>
-        <li><strong>Conditions:</strong> Partly Cloudy</li>
-        <li><strong>Wind:</strong> <span id="windDisplay">5</span> km/h</li>
-        <li><strong>Wind Chill:</strong> <span id="windchill">—</span></li>
-      </ul>
-    </aside>
-  </section>
-
-  <!-- MAIN content -->
-  <main class="container" id="mainContent">
-    <section id="about" class="card">
-      <h2>About Nigeria</h2>
-      <p>
-        Nigeria — "The Giant of Africa" — is a country of rich cultural diversity, vibrant music
-        and arts, diverse landscapes, and a dynamic population. Explore iconic landmarks,
-        markets, cuisine, and natural beauty.
-      </p>
-    </section>
-
-    <!-- Country section where you can add / preview an image -->
-    <section id="country" class="card">
-      <h2>Country Image (add / preview)</h2>
-      <p class="muted">Choose an image to preview for the country (recommended: landscape or cultural photo).</p>
-
-      <div class="country-image-wrap">
-        <!-- preview image (placeholder) -->
-        <img id="countryImage" src="images/nigerialaagos.jpg" alt="Country preview image" />
+      <!-- DATA BOX -->
+      <div class="info-box data-box">
+        <h2>Data</h2>
+        <ul>
+          <li><strong>Area:</strong> 923,768 sq km</li>
+          <li><strong>Population:</strong> ~250,000,000</li>
+          <li><strong>Capital:</strong> Abuja</li>
+          <li><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</li>
+          <li><strong>Currency:</strong> Nigerian Naira (NGN)</li>
+          <li><strong>Time Zone:</strong> GMT+1</li>
+          <li><strong>Calling Code:</strong> +234</li>
+          <li><strong>Internet TLD:</strong> .ng</li>
+        </ul>
       </div>
 
-      <label for="countryFile" class="file-label">Upload image
-        <input id="countryFile" type="file" accept="image/*">
-      </label>
-      <p class="helper">Selecting a file will preview the image above (local preview only).</p>
+      <!-- WEATHER BOX -->
+      <aside class="info-box weather-box" aria-labelledby="weather-heading">
+        <h2 id="weather-heading">
+          Weather 
+          <span class="icon desktop">⛅</span>
+          <span class="icon mobile" aria-hidden="true">
+            <!-- Simple partly-cloudy SVG -->
+            <svg width="22" height="22" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
+              <circle cx="20" cy="18" r="8" fill="#FFD93B" />
+              <path d="M46 36a12 12 0 0 0-23.4-4.2A8 8 0 0 0 24 52h22a8 8 0 0 0 0-16z" fill="#90CAF9"/>
+            </svg>
+          </span>
+        </h2>
+        <ul>
+          <li><strong>Temperature:</strong> <span id="tempDisplay">10</span> °C</li>
+          <li><strong>Conditions:</strong> Partly Cloudy</li>
+          <li><strong>Wind:</strong> <span id="windDisplay">5</span> km/h</li>
+          <li><strong>Wind Chill:</strong> <span id="windchill">—</span></li>
+        </ul>
+      </aside>
     </section>
+  </main>
 
-<!-- Repeated data (non-overlay) so it's visible on small screens too -->
-<section class="card" aria-label="Country quick facts">
-  <h2>Quick Facts</h2>
-  <div class="facts-grid">
-    <div><strong>Capital:</strong><div>Abuja</div></div>
-    <div><strong>Population:</strong><div>~250M</div></div>
-    <div><strong>Area:</strong><div>923,768 km²</div></div>
-    <div><strong>Currency:</strong><div>Naira (NGN)</div></div>
-    <div><strong>Timezone:</strong><div>WAT (GMT+1)</div></div>
-    <div><strong>ccTLD:</strong><div>.ng</div></div>
-  </div>
-</section>
-
-  <footer class="site-footer">
-  <div class="container">
-    <p>
-      &copy; <span id="year"></span> | Nigeria Travel Guide | 
-      <span id="contactName">Austin Anumudu</span>
-    </p>
-    <p>Last Modified: <span id="lastModified"></span></p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>©<span id="year"></span> 🌸 Austin Anumudu 🌸 Nigeria</p>
+    <p>Last Modification: <span id="lastModified"></span></p>
+  </footer>
 </body>
 </html>

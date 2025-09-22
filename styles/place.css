@@ -1,10 +1,6 @@
 
-You've been working on two different versions of your project: your original Nigeria information page, and the abstract wireframe. Here are the complete CSS and JavaScript files for both.
+Based on the code you provided, here is the complete CSS for your Nigeria information page. This includes styles for the header, image, data cards, weather section, and footer.
 
-Version 1: Original Page with Red & Centered Header
-This is the code for your detailed Nigeria page, with the header styled as you requested (red background and centered text).
-
-style.css
 CSS
 
 body {
@@ -121,19 +117,3 @@ body {
     flex-wrap: wrap;
     gap: 10px;
 }
-script.js
-JavaScript
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Get the last modified date of the document
-    const lastModified = new Date(document.lastModified);
-
-    // Format the date to a more readable string (e.g., "MM/DD/YYYY HH:MM:SS")
-    const formattedDate = lastModified.toLocaleString('en-GB');
-
-    // Find the element with the ID 'last-modified' and update its text
-    const lastModifiedElement = document.getElementById('last-modified');
-    if (lastModifiedElement) {
-        lastModifiedElement.textContent = `Last modified: ${formattedDate}`;
-    }
-});

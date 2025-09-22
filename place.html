@@ -1,65 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nigeria Travel Guide</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nigeria — Travel Guide</title>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Script loaded with defer -->
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>Welcome to Nigeria</h1>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Nigeria — Travel Guide</h1>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="#about">About</a>
+        <a href="#country">Country</a>
+        <a href="#data">Data</a>
+        <a href="#weather">Weather</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- HERO: responsive picture (WebP preferred, JPG fallback) -->
+  <section class="hero" aria-label="Hero">
     <picture>
-      <!-- Small screens -->
-      <source srcset="images/german-small.webp" media="(max-width: 600px)" type="image/webp">
-      <!-- Medium screens -->
-      <source srcset="images/german-medium.webp" media="(max-width: 1024px)" type="image/webp">
-      <!-- Large screens -->
-      <img src="images/german-large.webp" alt="Scenery of Nigeria" type="image/webp">
+      <!-- WebP sources -->
+      <source srcset="images/hero-small.webp" media="(max-width:600px)" type="image/webp">
+      <source srcset="images/hero-medium.webp" media="(max-width:1024px)" type="image/webp">
+      <source srcset="images/hero-large.webp" type="image/webp">
+
+      <!-- JPG fallbacks -->
+      <source srcset="images/hero-small.jpg" media="(max-width:600px)">
+      <source srcset="images/hero-medium.jpg" media="(max-width:1024px)">
+      <!-- final img fallback -->
+      <img src="images/nigerialaagos.jpg" alt="Scenic view representative of the country" width="1600" height="600">
     </picture>
+
+    <!-- Overlayed boxes (match wireframe) -->
+    <div class="overlay data-box" id="data">
+      <h2>Country Data</h2>
+      <ul>
+        <li><strong>Capital:</strong> Abuja</li>
+        <li><strong>Area:</strong> 923,768 km²</li>
+        <li><strong>Population:</strong> 250M (estimate)</li>
+        <li><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</li>
+        <li><strong>Currency:</strong> Nigerian Naira (NGN)</li>
+        <li><strong>Time zone:</strong> GMT+1</li>
+      </ul>
+    </div>
+
+    <aside class="overlay weather-box" id="weather" aria-labelledby="weather-heading">
+      <h2 id="weather-heading">
+        Weather
+        <!-- Inline SVG (only shown on small screens via CSS) -->
+        <span class="weather-svg" aria-hidden="true">
+          <!-- simple partly-cloudy svg -->
+          <svg width="22" height="22" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <circle cx="20" cy="18" r="8" fill="#FFD93B" />
+            <path d="M46 36a12 12 0 0 0-23.4-4.2A8 8 0 0 0 24 52h22a8 8 0 0 0 0-16z" fill="#90CAF9"/>
+          </svg>
+        </span>
+      </h2>
+
+      <ul class="weather-list">
+        <li><strong>Temperature:</strong> <span id="tempDisplay">10</span> °C</li>
+        <li><strong>Conditions:</strong> Partly Cloudy</li>
+        <li><strong>Wind:</strong> <span id="windDisplay">5</span> km/h</li>
+        <li><strong>Wind Chill:</strong> <span id="windchill">—</span></li>
+      </ul>
+    </aside>
   </section>
 
-  <!-- Main Content -->
-  <main>
-    <section class="intro">
+  <!-- MAIN content -->
+  <main class="container" id="mainContent">
+    <section id="about" class="card">
       <h2>About Nigeria</h2>
       <p>
-        Nigeria, known as the "Giant of Africa," is a vibrant country rich in culture, history, and natural beauty.
-        From bustling cities to scenic landscapes, it is a land of opportunities and diversity.
+        Nigeria — "The Giant of Africa" — is a country of rich cultural diversity, vibrant music
+        and arts, diverse landscapes, and a dynamic population. Explore iconic landmarks,
+        markets, cuisine, and natural beauty.
       </p>
     </section>
 
-    <!-- Weather Section -->
-    <aside class="weather">
-      <h2>Weather</h2>
-      <ul>
-        <li><strong>Temperature:</strong> 10 °C</li>
-        <li><strong>Conditions:</strong> 
-          <span class="weather-icon-mobile">
-            <!-- SVG icon for mobile view -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="orange" viewBox="0 0 16 16">
-              <path d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
-              <path d="M8 0a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 8 0zm0 14a.5.5 0 0 1 .5.5V16a.5.5 0 0 1-1 0v-1.5a.5.5 0 0 1 .5-.5zm8-6a.5.5 0 0 1-.5.5H14a.5.5 0 0 1 0-1h1.5a.5.5 0 0 1 .5.5zM2 .5a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V1a.5.5 0 0 1 .5-.5zM2 14a.5.5 0 0 1 .5.5V16a.5.5 0 0 1-1 0v-1.5a.5.5 0 0 1 .5-.5z"/>
-            </svg>
-          </span>
-          Partly Cloudy
-        </li>
-        <li><strong>Wind:</strong> 5 km/h</li>
-        <li><strong>Wind Chill:</strong> <span id="windchill"></span></li>
-      </ul>
-    </aside>
-  </main>
+    <!-- Country section where you can add / preview an image -->
+    <section id="country" class="card">
+      <h2>Country Image (add / preview)</h2>
+      <p class="muted">Choose an image to preview for the country (recommended: landscape or cultural photo).</p>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; <span id="2025"></span> Nigeria Travel Guide</p>
+      <div class="country-image-wrap">
+        <!-- preview image (placeholder) -->
+        <img id="countryImage" src="images/nigerialaagos.jpg" alt="Country preview image" />
+      </div>
+
+      <label for="countryFile" class="file-label">Upload image
+        <input id="countryFile" type="file" accept="image/*">
+      </label>
+      <p class="helper">Selecting a file will preview the image above (local preview only).</p>
+    </section>
+
+<!-- Repeated data (non-overlay) so it's visible on small screens too -->
+<section class="card" aria-label="Country quick facts">
+  <h2>Quick Facts</h2>
+  <div class="facts-grid">
+    <div><strong>Capital:</strong><div>Abuja</div></div>
+    <div><strong>Population:</strong><div>~250M</div></div>
+    <div><strong>Area:</strong><div>923,768 km²</div></div>
+    <div><strong>Currency:</strong><div>Naira (NGN)</div></div>
+    <div><strong>Timezone:</strong><div>WAT (GMT+1)</div></div>
+    <div><strong>ccTLD:</strong><div>.ng</div></div>
+  </div>
+</section>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p>
+      &copy; <span id="year"></span> | Nigeria Travel Guide | 
+      <span id="contactName">Austin Anumudu</span>
+    </p>
     <p>Last Modified: <span id="lastModified"></span></p>
-  </footer>
+  </div>
+</footer>
 </body>
 </html>

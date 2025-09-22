@@ -1,77 +1,29 @@
-/* Global Variables */
-:root {
-  --primary-green: #008751;
-  --secondary-white: #ffffff;
-  --neutral-black: #222;
-  --font-main: 'Arial', sans-serif;
-}
-
-/* Reset + Base */
-body {
-  margin: 0;
-  font-family: var(--font-main);
-  background-color: var(--secondary-white);
-  color: var(--neutral-black);
-  line-height: 1.6;
-}
-
-/* Header */
-header {
-  background-color: var(--primary-green);
-  color: var(--secondary-white);
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Hero */
-.hero img {
-  width: 100%;
-  display: block;
-  height: auto;
-  border-bottom: 4px solid var(--primary-green);
-}
-
-/* Intro */
-main {
-  padding: 1.5rem;
-}
-
-.intro {
-  margin-bottom: 2rem;
-}
-
-/* Weather */
-.weather {
-  border: 2px solid var(--primary-green);
-  padding: 1rem;
-  border-radius: 8px;
-  background: #f5f5f5;
-  max-width: 400px;
-}
-
-/* Mobile SVG icon */
-.weather-icon-mobile {
-  display: inline-block;
-}
-
-/* Wide view pseudo-element ⛅ */
-@media (min-width: 768px) {
-  .weather h2::after {
-    content: " ⛅";
-    margin-left: 0.5rem;
+/* ===== Responsive layout adjustments (mobile-first adjustments) ===== */
+@media (max-width: 600px) {
+  /* turn overlay boxes into static flow elements stacked under hero for readability */
+  .overlay {
+    position: static;
+    max-width: none;
+    margin: 0.8rem;
   }
 
-  .weather-icon-mobile {
-    display: none;
+  .data-box, .weather-box {
+    border-left-width: 4px;
   }
+
+  .main-nav { flex-direction: column; gap:0.5rem; }
+  .facts-grid { grid-template-columns: 1fr; }
+
+  /* Hide overlay data on small screens */
+  .overlay.data-box { display: none; }
 }
 
-/* Footer */
-footer {
-  background: var(--primary-green);
-  color: var(--secondary-white);
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
+/* medium screens: ensure hero overlay has breathing room */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .overlay { padding: 0.85rem; max-width: 300px; }
+}
+
+/* Hide repeated card data on large screens */
+@media (min-width: 601px) {
+  section[aria-label="Country quick facts"] { display: none; }
 }

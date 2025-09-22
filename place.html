@@ -1,164 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nigeria - The Giant of Africa</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- JS with defer -->
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-    <header class="page-header">
-        <div class="container header-container">
-            <a href="#" class="logo">My Logo</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="cta-button">Get a Quote</button>
-        </div>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <h1>Nigeria</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#attractions">Attractions</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#weather">Weather</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <h1>Your Catchy Headline Here</h1>
-                    <p>Sub-headline that provides more detail and context for your value proposition.</p>
-                    <button class="cta-button primary">Learn More</button>
-                    <div class="social-proof">
-                        <p>Trusted by:</p>
-                        <div class="company-logos">
-                            <img src="https://via.placeholder.com/100x40" alt="Client Logo 1">
-                            <img src="https://via.placeholder.com/100x40" alt="Client Logo 2">
-                            <img src="https://via.placeholder.com/100x40" alt="Client Logo 3">
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image-placeholder">
-                    <picture>
-                        <source 
-                            srcset="
-                                https://via.placeholder.com/600x400.webp 600w,
-                                https://via.placeholder.com/900x600.webp 900w,
-                                https://via.placeholder.com/1200x800.webp 1200w
-                            " 
-                            type="image/webp">
-                        <img 
-                            src="https://via.placeholder.com/1200x800.jpg" 
-                            alt="A professional looking office setup with a diverse team"
-                            srcset="
-                                https://via.placeholder.com/600x400.jpg 600w,
-                                https://via.placeholder.com/900x600.jpg 900w,
-                                https://via.placeholder.com/1200x800.jpg 1200w
-                            " 
-                            sizes="
-                                (max-width: 768px) 100vw,
-                                (max-width: 1200px) 80vw,
-                                1200px
-                            ">
-                    </picture>
-                </div>
-            </div>
-        </section>
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <picture>
+      <!-- Small screens -->
+      <source srcset="images/nigeria-hero-small.webp" media="(max-width:480px)" type="image/webp">
+      <source srcset="images/nigeria-hero-small.jpg" media="(max-width:480px)">
+      <!-- Medium screens -->
+      <source srcset="images/nigeria-hero-medium.webp" media="(max-width:768px)" type="image/webp">
+      <source srcset="images/nigeria-hero-medium.jpg" media="(max-width:768px)">
+      <!-- Large screens -->
+      <source srcset="images/nigeria-hero-large.webp" type="image/webp">
+      <img src="images/lagosshow.jpg" alt="Beautiful landscape of Nigeria">
+    </picture>
+    <div class="hero-text">
+      <h2>Discover Nigeria</h2>
+      <p>A country of culture, landscapes, and vibrant cities.</p>
+    </div>
+  </section>
 
-        <section class="services-section">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <img src="https://via.placeholder.com/80" alt="Service Icon">
-                        <h3>Service One</h3>
-                        <p>A short description of the first service offered.</p>
-                        <a href="#">Learn More &rarr;</a>
-                    </div>
-                    <div class="service-item">
-                        <img src="https://via.placeholder.com/80" alt="Service Icon">
-                        <h3>Service Two</h3>
-                        <p>A short description of the second service offered.</p>
-                        <a href="#">Learn More &rarr;</a>
-                    </div>
-                    <div class="service-item">
-                        <img src="https://via.placeholder.com/80" alt="Service Icon">
-                        <h3>Service Three</h3>
-                        <p>A short description of the third service offered.</p>
-                        <a href="#">Learn More &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <div class="weather-section">
-            <h2 class="weather-heading">Weather</h2>
-            <p>Temperature: 40°F</p>
-            <p>Wind Speed: 10 mph</p>
-            <p>Windchill: <span id="windchillFactor"></span></p>
-        </div>
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2>About Nigeria</h2>
+    <p>Nigeria, located in West Africa, is known for its rich culture, diverse landscapes, and vibrant cities...</p>
+  </section>
 
-        <section class="testimonials-section">
-            <div class="container testimonial-container">
-                <div class="testimonial-content">
-                    <h2>What Our Clients Say</h2>
-                    <blockquote class="testimonial-quote">
-                        "This company delivered beyond our expectations. Their attention to detail and professionalism were second to none."
-                    </blockquote>
-                    <p class="testimonial-author">- Jane Doe, CEO of Company</p>
-                </div>
-                <div class="stats-placeholder">
-                    <p class="stat-number">100+</p>
-                    <p class="stat-label">Happy Clients</p>
-                </div>
-            </div>
-        </section>
+  <!-- ATTRACTIONS SECTION -->
+  <section id="attractions">
+    <h2>Top Attractions</h2>
+    <div class="attraction-cards">
+      <div class="card">
+        <img src="images/zuma.jpg" alt="Zuma Rock">
+        <h3>Zuma Rock</h3>
+        <p>Iconic monolith near Abuja.</p>
+      </div>
+      <div class="card">
+        <img src="images/oluma.jpg" alt="Olumo Rock">
+        <h3>Olumo Rock</h3>
+        <p>Historic rock formation in Abeokuta.</p>
+      </div>
+      <div class="card">
+        <img src="images/yankari.jpg" alt="Yankari National Park">
+        <h3>Yankari National Park</h3>
+        <p>Wildlife sanctuary and adventure spot.</p>
+      </div>
+    </div>
+  </section>
 
-        <section class="final-cta-section">
-            <div class="container final-cta-container">
-                <h2>Ready to Start Your Project?</h2>
-                <p>Contact us today to discuss your business needs and get a free quote.</p>
-                <button class="cta-button">Contact Us</button>
-            </div>
-        </section>
-    </main>
+  <!-- GALLERY SECTION -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/lagosnow.jpg" alt="Lagos city view">
+      <img src="images/naigra.jpg" alt="Beautiful landscape">
+      <img src="images/abuja.jpg" alt="Abuja cityscape">
+    </div>
+  </section>
 
-    <footer class="page-footer">
-        <div class="container footer-container">
-            <div class="footer-column">
-                <a href="#" class="logo">My Logo</a>
-                <p>Your company tagline or brief description.</p>
-                <div class="social-icons">
-                    <a href="#">FB</a> | <a href="#">TW</a> | <a href="#">LI</a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Careers</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright-bar">
-            <p>&copy; <span id="currentYear"></span> All Rights Reserved.</p>
-            <p>Last modified: <span id="lastModified"></span></p>
-        </div>
-    </footer>
+  <!-- WEATHER SECTION -->
+  <section id="weather">
+    <h3>Weather</h3>
+    <!-- Mobile SVG icon -->
+    <div class="weather-mobile">
+      <img src="images/weather-sunny.svg" alt="Sunny weather icon">
+      <span id="temperature">32°C</span>
+    </div>
+    <p>Wind Chill: <span id="windchill"></span></p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; <span id="2025"></span> Nigeria Info Page</p>
+    <p>Last modified: <span id="last-modified"></span></p>
+  </footer>
 
 </body>
 </html>
+

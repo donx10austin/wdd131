@@ -19,4 +19,3 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#year").textContent = new Date().getFullYear();
   document.querySelector("#lastModified").textContent = document.lastModified;
 });
-✨ With this setup:

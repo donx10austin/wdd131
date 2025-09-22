@@ -1,59 +1,68 @@
-body {
+/* Reset */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
-  background: #f0f0f0;
+  background: #f9f9f9;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-  background: #c5002f;
+  text-align: center;
+  background: #006400;
   color: white;
-  text-align: center;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 
-.hero {
-  position: relative;
-  text-align: center;
+main {
+  flex: 1;
+  padding: 1rem;
 }
 
-.hero img {
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.hero-image img {
   width: 100%;
   height: auto;
-  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .card {
-  position: absolute;
-  background: rgba(255,255,255,0.9);
+  background: white;
   padding: 1rem;
-  border-radius: 8px;
-  max-width: 250px;
-  font-size: 0.9rem;
-}
-
-.data-card {
-  top: 20%;
-  left: 5%;
-}
-
-.weather-card {
-  bottom: 20%;
-  right: 5%;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .card h2 {
-  margin-top: 0;
-  background: #006b3c;
-  color: white;
-  padding: 0.3rem;
-  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  color: #006400;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card li {
+  margin: 0.4rem 0;
 }
 
 footer {
-  background: #c5002f;
-  color: white;
   text-align: center;
+  background: #006400;
+  color: white;
   padding: 1rem;
-  margin-top: -5px;
 }

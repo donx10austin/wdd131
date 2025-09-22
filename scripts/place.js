@@ -1,26 +1,26 @@
-// Display last modified date
-document.addEventListener("DOMContentLoaded", () => {
-  const lastModified = document.lastModified;
-  document.getElementById("last-modified").textContent = lastModified;
+document.addEventListener('DOMContentLoaded', () => {
+  // ✅ Dynamic copyright year
+  const currentYear = new Date().getFullYear();
+  document.getElementById('copyright').innerHTML =
+    `&copy;${currentYear} Austin Anumudu | Nigeria`;
 
-  // Example wind chill calculation (dummy values)
-  const temp = 32; // Celsius
-  const wind = 8;  // km/h
+  // ✅ Last modified date
+  document.getElementById('last-modified').textContent = document.lastModified;
 
-  const windChill = calculateWindChill(temp, wind);
-  document.getElementById("windchill").textContent = windChill ? `${windChill}°C` : "N/A";
-});
+  // ✅ Wind chill calculation
+  const temperature = parseFloat(document.getElementById('temperature').textContent);
+  const wind = parseFloat(document.getElementById('wind').textContent);
+  const windchillEl = document.getElementById('windchill');
 
-// Wind chill formula (Celsius version, simplified)
-function calculateWindChill(temp, windSpeed) {
-  if (temp <= 10 && windSpeed > 4.8) {
-    return (
-      13.12 +
-      0.6215 * temp -
-      11.37 * Math.pow(windSpeed, 0.16) +
-      0.3965 * temp * Math.pow(windSpeed, 0.16)
-    ).toFixed(1);
+  function calculateWindChill(t, s) {
+    return (13.12 + 0.6215 * t - 11.37 * Math.pow(s, 0.16) + 0.3965 * t * Math.pow(s, 0.16)).toFixed(1);
   }
-  return null;
-}
+
+  // Only run if conditions are met
+  if (temperature <= 10 && wind > 4.8) {
+    windchillEl.textContent = `${calculateWindChill(temperature, wind)} °C`;
+  } else {
+    windchillEl.textContent = "N/A";
+  }
+});
 

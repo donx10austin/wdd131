@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover Nigeria, the Giant of Africa — explore its culture, weather, top attractions, and gallery showcasing the beauty of the nation.">
+
+  <!-- ✅ Meta description -->
+  <meta name="description" content="Discover Nigeria - The Giant of Africa. Explore its culture, people, weather, and top attractions.">
+
   <title>Nigeria - The Giant of Africa</title>
 
-  <!-- Google Fonts (no @import) -->
+  <!-- ✅ Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- External CSS (in styles directory) -->
+  <!-- ✅ External CSS -->
   <link rel="stylesheet" href="styles/style.css">
 
-  <!-- Favicon -->
+  <!-- ✅ Favicon -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-  <!-- External JS (in scripts directory) -->
+  <!-- ✅ External JS -->
   <script src="scripts/script.js" defer></script>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- ✅ Header -->
   <header>
     <h1>NIGERIA</h1>
   </header>
 
-  <!-- MAIN -->
   <main>
+    <!-- ✅ Data + Weather Section -->
     <section id="hero">
       <div class="info-row">
-
-        <!-- Data box -->
         <div class="info-box data-box">
           <h3>Data</h3>
           <p><strong>Area:</strong> 923,768 sq km</p>
@@ -43,68 +44,60 @@
           <p><strong>Internet TLD:</strong> .ng</p>
         </div>
 
-        <!-- Weather box -->
         <div class="info-box weather-box">
           <h3>Weather</h3>
+          <!-- ✅ SVG for mobile, PNG/WebP for desktop -->
           <picture>
+            <source media="(max-width: 768px)" srcset="images/weather-icon.svg" type="image/svg+xml">
             <source srcset="images/weather-icon.webp" type="image/webp">
             <img src="images/weather-icon.png" alt="Sunny weather icon" class="weather-icon">
           </picture>
-          <p><strong>Temperature:</strong> <span id="temperature">32°C</span></p>
+          <p><strong>Temperature:</strong> <span id="temperature">32</span>°C</p>
           <p><strong>Conditions:</strong> Sunny</p>
-          <p><strong>Wind:</strong> 8 km/h</p>
+          <p><strong>Wind:</strong> <span id="wind">8</span> km/h</p>
           <p><strong>Wind Chill:</strong> <span id="windchill"></span></p>
         </div>
-
       </div>
     </section>
 
+    <!-- ✅ Attractions Section -->
     <section id="attractions">
       <h2>Top Attractions</h2>
       <div class="attraction-cards">
-
         <div class="card">
-          <picture>
-            <source srcset="images/zuma.webp" type="image/webp">
-            <img src="images/zuma.jpg" alt="Zuma Rock">
-          </picture>
+          <img src="images/zuma.webp" alt="Zuma Rock" loading="lazy">
           <h3>Zuma Rock</h3>
           <p>Iconic monolith near Abuja.</p>
         </div>
-
         <div class="card">
-          <picture>
-            <source srcset="images/oluma.webp" type="image/webp">
-            <img src="images/oluma.jpg" alt="Olumo Rock">
-          </picture>
+          <img src="images/oluma.webp" alt="Olumo Rock" loading="lazy">
           <h3>Olumo Rock</h3>
           <p>Historic rock formation in Abeokuta.</p>
         </div>
-
         <div class="card">
-          <picture>
-            <source srcset="images/yankari.webp" type="image/webp">
-            <img src="images/yankari.jpg" alt="Yankari National Park">
-          </picture>
+          <img src="images/yankari.webp" alt="Yankari National Park" loading="lazy">
           <h3>Yankari National Park</h3>
           <p>Wildlife sanctuary and adventure spot.</p>
         </div>
-
       </div>
     </section>
 
+    <!-- ✅ Gallery Section with srcset -->
     <section id="gallery">
       <h2>Gallery</h2>
       <div class="gallery-grid">
         <picture>
+          <source srcset="images/lagosnow-small.webp" media="(max-width: 768px)" type="image/webp">
           <source srcset="images/lagosnow.webp" type="image/webp">
           <img src="images/lagosnow.jpg" alt="Lagos city view" loading="lazy">
         </picture>
         <picture>
+          <source srcset="images/naigra-small.webp" media="(max-width: 768px)" type="image/webp">
           <source srcset="images/naigra.webp" type="image/webp">
           <img src="images/naigra.jpg" alt="Beautiful landscape" loading="lazy">
         </picture>
         <picture>
+          <source srcset="images/abuja-small.webp" media="(max-width: 768px)" type="image/webp">
           <source srcset="images/abuja.webp" type="image/webp">
           <img src="images/abuja.jpg" alt="Abuja cityscape" loading="lazy">
         </picture>
@@ -112,7 +105,7 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+ <!-- FOOTER -->
   <footer>
     <p>&copy;2025 Austin Anumudu | Nigeria</p>
     <p>Last modified: <span id="last-modified"></span></p>

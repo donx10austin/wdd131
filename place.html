@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nigeria — Travel Guide</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+
+  <!-- Meta Info -->
+  <meta name="description" content="Explore Nigeria — travel guide with data, weather, wildlife, and cultural highlights." />
+  <meta name="author" content="Austin Anumudu" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- Scripts -->
+  <script src="scripts/script.js" defer></script>
 </head>
 <body>
   <!-- Banner -->
@@ -16,20 +29,19 @@
   <!-- Hero -->
   <main>
     <section class="hero" aria-label="Hero image of Nigeria">
-     <picture>
-  <!-- WebP sources -->
-  <source srcset="images/hero-small.webp" media="(max-width:600px)" type="image/webp">
-  <source srcset="images/hero-medium.webp" media="(max-width:1024px)" type="image/webp">
-  <source srcset="images/hero-large.webp" type="image/webp">
+      <picture>
+        <!-- WebP sources -->
+        <source srcset="images/hero-small.webp" media="(max-width:600px)" type="image/webp">
+        <source srcset="images/hero-medium.webp" media="(max-width:1024px)" type="image/webp">
+        <source srcset="images/hero-large.webp" type="image/webp">
+        <!-- JPG fallbacks -->
+        <source srcset="images/hero-small.jpg" media="(max-width:600px)">
+        <source srcset="images/hero-medium.jpg" media="(max-width:1024px)">
+        <!-- Final fallback -->
+        <img src="images/lemurs.jpg" alt="Lemurs in Nigeria" width="1600" height="600">
+      </picture>
 
-  <!-- JPG fallbacks -->
-  <source srcset="images/hero-small.jpg" media="(max-width:600px)">
-  <source srcset="images/hero-medium.jpg" media="(max-width:1024px)">
-  
-  <!-- final fallback -->
-  <img src="images/lemurs.jpg" alt="Lemurs in Nigeria" width="1600" height="600">
-</picture>
-      <!-- DATA BOX -->
+      <!-- Data Box -->
       <div class="info-box data-box">
         <h2>Data</h2>
         <ul>
@@ -44,13 +56,13 @@
         </ul>
       </div>
 
-      <!-- WEATHER BOX -->
+      <!-- Weather Box -->
       <aside class="info-box weather-box" aria-labelledby="weather-heading">
         <h2 id="weather-heading">
-          Weather 
+          Weather
           <span class="icon desktop">⛅</span>
           <span class="icon mobile" aria-hidden="true">
-            <!-- Simple partly-cloudy SVG -->
+            <!-- SVG -->
             <svg width="22" height="22" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
               <circle cx="20" cy="18" r="8" fill="#FFD93B" />
               <path d="M46 36a12 12 0 0 0-23.4-4.2A8 8 0 0 0 24 52h22a8 8 0 0 0 0-16z" fill="#90CAF9"/>
@@ -66,7 +78,7 @@
       </aside>
     </section>
 
-    <!-- 🦎 NEW IMAGES SECTION (like Madagascar Lemurs) -->
+    <!-- Wildlife Gallery -->
     <section class="gallery" aria-label="Wildlife images from Nigeria">
       <h2>Wildlife in Nigeria</h2>
       <div class="gallery-grid">

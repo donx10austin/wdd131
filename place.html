@@ -3,50 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nigeria</title>
+  <title>Nigeria Travel Guide</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Nigeria</h1>
+    <h1>Welcome to Nigeria</h1>
   </header>
 
-  <main class="hero">
-    <!-- Main Image -->
-    <img src="images/german.jpg" alt="Nigeria Landscape" class="background-img">
+  <!-- Hero Section -->
+  <section class="hero">
+    <picture>
+      <!-- Small screens -->
+      <source srcset="images/german-small.webp" media="(max-width: 600px)" type="image/webp">
+      <!-- Medium screens -->
+      <source srcset="images/german-medium.webp" media="(max-width: 1024px)" type="image/webp">
+      <!-- Large screens -->
+      <img src="images/german-large.webp" alt="Scenery of Nigeria" type="image/webp">
+    </picture>
+  </section>
 
-    <!-- Data Card -->
-    <div class="card data-card">
-      <h2>Data</h2>
-      <ul>
-        <li><strong>Area:</strong> 987,841 sq km</li>
-        <li><strong>Population:</strong> 237,891,018</li>
-        <li><strong>Capital:</strong> Abuja</li>
-        <li><strong>Languages:</strong> Igbo, Hausa, Yoruba, English</li>
-        <li><strong>Currency:</strong> Naira</li>
-        <li><strong>Time Zone:</strong> GMT+1</li>
-        <li><strong>Calling Code:</strong> +234</li>
-        <li><strong>Internet TLD:</strong> .ng</li>
-      </ul>
-    </div>
+  <!-- Main Content -->
+  <main>
+    <section class="intro">
+      <h2>About Nigeria</h2>
+      <p>
+        Nigeria, known as the "Giant of Africa," is a vibrant country rich in culture, history, and natural beauty.
+        From bustling cities to scenic landscapes, it is a land of opportunities and diversity.
+      </p>
+    </section>
 
-    <!-- Weather Card -->
-    <div class="card weather-card">
-      <h2>Weather 🌤️</h2>
+    <!-- Weather Section -->
+    <aside class="weather">
+      <h2>Weather</h2>
       <ul>
-        <li><strong>Temperature:</strong> 10°C</li>
-        <li><strong>Conditions:</strong> Partly Cloudy</li>
+        <li><strong>Temperature:</strong> 10 °C</li>
+        <li><strong>Conditions:</strong> 
+          <span class="weather-icon-mobile">
+            <!-- SVG icon for mobile view -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="orange" viewBox="0 0 16 16">
+              <path d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+              <path d="M8 0a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 8 0zm0 14a.5.5 0 0 1 .5.5V16a.5.5 0 0 1-1 0v-1.5a.5.5 0 0 1 .5-.5zm8-6a.5.5 0 0 1-.5.5H14a.5.5 0 0 1 0-1h1.5a.5.5 0 0 1 .5.5zM2 .5a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V1a.5.5 0 0 1 .5-.5zM2 14a.5.5 0 0 1 .5.5V16a.5.5 0 0 1-1 0v-1.5a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+          </span>
+          Partly Cloudy
+        </li>
         <li><strong>Wind:</strong> 5 km/h</li>
-        <li><strong>Wind Chill:</strong> 9.8°C</li>
+        <li><strong>Wind Chill:</strong> <span id="windchill"></span></li>
       </ul>
-    </div>
+    </aside>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>©2025 🌸 Austin Anumudu 🌸 Nigeria <br>
-    Last Modification: <span id="lastModified"></span></p>
+    <p>&copy; <span id="2025"></span> Nigeria Travel Guide</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
   </footer>
-
-  <script src="script.js" defer></script>
 </body>
 </html>

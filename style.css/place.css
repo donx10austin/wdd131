@@ -1,12 +1,12 @@
-
-Based on the code you provided, here is the complete CSS for your Nigeria information page. This includes styles for the header, image, data cards, weather section, and footer.
-
-CSS
+:root {
+    --primary-color: red;
+    --background-color: #f4f4f4;
+}
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
 }
 
 .container {
@@ -18,12 +18,22 @@ body {
 }
 
 .header {
-    background-color: red; /* Header color is red */
+    background-color: var(--primary-color);
     color: #fff;
     padding: 20px;
-    text-align: center; /* Header text is centered */
+    text-align: center;
     font-size: 2em;
     font-weight: bold;
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    margin: 10px auto 0;
 }
 
 .image-section {
@@ -116,4 +126,20 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+/* Media Query for smaller screens (e.g., phones) */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .card {
+        min-width: 100%;
+    }
 }

@@ -1,4 +1,4 @@
-/* General reset */
+/* Reset + base styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,80 +7,151 @@
 
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
+  background: #fafafa;
   color: #222;
 }
 
-/* Header */
+/* Banner */
 .banner {
-  background: #c8102e; /* deep red like Madagascar example */
-  color: white;
+  background: #00695c;
+  color: #fff;
   text-align: center;
-  padding: 1rem;
+  padding: 1.2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-/* Hero Section */
+/* Hero section */
 .hero {
   position: relative;
-  max-height: 600px;
-  overflow: hidden;
+  margin-bottom: 2rem;
 }
 
-.hero img {
+.hero picture img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
 
-/* Overlay info boxes */
+/* Info boxes */
 .info-box {
   position: absolute;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   padding: 1rem;
   border-radius: 8px;
-  width: 250px;
+  max-width: 280px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 0.95rem;
 }
 
+/* Data box top-left */
 .data-box {
-  top: 20px;
-  left: 20px;
+  top: 1rem;
+  left: 1rem;
 }
 
+/* Weather box bottom-right */
 .weather-box {
-  bottom: 20px;
-  right: 20px;
+  bottom: 1rem;
+  right: 1rem;
 }
 
-/* Wildlife gallery */
+.info-box h2 {
+  margin-bottom: 0.5rem;
+  color: #00695c;
+  font-size: 1.2rem;
+}
+
+.info-box ul {
+  list-style: none;
+}
+
+.info-box li {
+  margin-bottom: 0.3rem;
+}
+
+/* Wildlife Gallery */
 .gallery {
-  padding: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
 .gallery h2 {
   margin-bottom: 1rem;
+  color: #00695c;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .gallery-grid figure {
-  margin: 0;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .gallery-grid img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 6px;
+  display: block;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #444;
 }
 
 /* Footer */
 footer {
-  background: #c8102e;
-  color: white;
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
+  background: #00695c;
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+  .info-box {
+    position: static;
+    margin: 1rem auto;
+    max-width: 90%;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Show SVG only on mobile */
+  .icon.desktop {
+    display: none;
+  }
+
+  .icon.mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 601px) {
+  /* Show emoticon only in wide view */
+  .icon.mobile {
+    display: none;
+  }
+  .icon.desktop {
+    display: inline-block;
+  }
 }

@@ -191,7 +191,8 @@ const filterTemples = (filter) => {
     
     // Handle case where no temples match the filter
     if (filteredList.length === 0) {
-        gallery.innerHTML = `<p style="text-align: center; grid-column: 1 / -1; font-size: 1.2rem; color: #555;">No temples found for this filter criteria.</p>`;
+        // Using CSS class instead of inline style (Fix 2)
+        gallery.innerHTML = `<p class="no-temples-message">No temples found for this filter criteria.</p>`;
         pageTitle.textContent = title;
         return;
     }

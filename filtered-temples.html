@@ -1,455 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A photo album showcasing beautiful temples from around the world.">
-  <meta name="author" content="Austin Anumudu">
-  <title>Temple Album</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  
-  <style>
-    /* CSS Consolidated for the single-file requirement */
-
-    :root {
-      --purple: #4b006e;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      color: #222;
-      background: #fff;
-    }
-
-    /* HEADER */
-    header {
-      background: var(--purple);
-      color: white;
-      padding: 1rem 2rem;
-      overflow: hidden;
-      display: flex; 
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap; 
-    }
-
-    .logo {
-      margin: 0;
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-
-    /* NAVIGATION */
-    #mainNav {
-      width: auto; 
-    }
-
-    #mainNav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 1rem; 
-      flex-wrap: wrap; 
-      justify-content: center; 
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 Final Project - Temple Album</title>
     
-    @media (max-width: 600px) {
+    <!-- Complete Google Font Embed (Fixes 3 & 4) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Only requesting 400 and 700 weights to satisfy validation -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    
+    <style>
+        /* CSS Consolidated for the single-file requirement */
+
+        :root {
+          --purple: #4b006e;
+        }
+
+        body {
+          margin: 0;
+          font-family: 'Roboto', sans-serif;
+          line-height: 1.6;
+          color: #222;
+          background: #fff;
+        }
+
+        /* HEADER */
         header {
-            flex-direction: column;
-            text-align: center;
+          background: var(--purple);
+          color: white;
+          padding: 1rem 2rem;
+          overflow: hidden;
+          display: flex; 
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap; 
         }
+
+        .logo {
+          margin: 0;
+          font-size: 1.6rem;
+          font-weight: 700;
+        }
+
+        /* NAVIGATION */
         #mainNav {
-            margin-top: 1rem;
+          width: auto; 
         }
-    }
 
-    #mainNav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem; 
-      letter-spacing: 0.5px;
-      padding: 0.5rem; 
-      transition: color 0.3s ease;
-      cursor: pointer; 
-      border-radius: 4px;
-    }
+        #mainNav ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          gap: 1rem; 
+          flex-wrap: wrap; 
+          justify-content: center; 
+        }
 
-    /* required hover and active state */
-    #mainNav a:hover,
-    #mainNav a.active { 
-      color: #333; 
-      background-color: #ffd700; 
-    }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            #mainNav {
+                margin-top: 1rem;
+            }
+        }
 
-    /* PAGE TITLE */
-    .page-title {
-      text-align: center;
-      margin: 1.5rem 0;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--purple);
-    }
+        #mainNav a {
+          color: white;
+          text-decoration: none;
+          /* Updated to font-weight 700 to match the requested font load (Fix 4) */
+          font-weight: 700;
+          font-size: 1.1rem; 
+          letter-spacing: 0.5px;
+          padding: 0.5rem; 
+          transition: color 0.3s ease;
+          cursor: pointer; 
+          border-radius: 4px;
+        }
 
-    /* GALLERY - mobile (1 column grid) */
-    .album {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem; 
-      padding: 1rem;
-      justify-items: center;
-    }
+        /* required hover and active state */
+        #mainNav a:hover,
+        #mainNav a.active { 
+          color: #333; 
+          background-color: #ffd700; 
+        }
 
-    .album figure {
-      width: 90%;
-      max-width: 450px; 
-      background: #f9f9f9;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    /* CSS for Large Temples - Gold border highlight */
-    .album figure.is-large {
-        border: 4px solid #ffd700; 
-        box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
-    }
+        /* PAGE TITLE */
+        .page-title {
+          text-align: center;
+          margin: 1.5rem 0;
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--purple);
+        }
 
-    .album figure:hover {
-        transform: translateY(-8px); 
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    .album img {
-      width: 100%;
-      height: 250px; 
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    
-    .album figure:hover img {
-        transform: scale(1.05);
-    }
-
-    .album figcaption {
-      padding: 1rem 0.75rem;
-      color: #444;
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--purple);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-    }
-    
-    /* Responsive styles */
-    @media screen and (min-width: 768px) {
+        /* GALLERY - mobile (1 column grid) */
         .album {
-            grid-template-columns: repeat(2, 1fr);
-            max-width: 900px;
-            margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem; 
+          padding: 1rem;
+          justify-items: center;
         }
-    }
 
-    @media screen and (min-width: 1024px) {
-      .album {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1300px;
-        gap: 2rem;
-      }
-      .album figure {
-        max-width: 100%;
-      }
-    }
-  </style>
+        .album figure {
+          width: 90%;
+          max-width: 450px; 
+          background: #f9f9f9;
+          border-radius: 12px;
+          box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* CSS for Large Temples - Gold border highlight */
+        .album figure.is-large {
+            border: 4px solid #ffd700; 
+            box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
+        }
+
+        .album figure:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .album img {
+          width: 100%;
+          height: 250px; 
+          object-fit: cover;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+
+        .album figure:hover img {
+            transform: scale(1.05);
+        }
+
+        .album figcaption {
+          padding: 1rem 0.75rem;
+          color: #444;
+          text-align: center;
+          font-weight: 700;
+          font-size: 1.1rem;
+        }
+
+        /* FOOTER */
+        footer {
+          background: var(--purple);
+          color: white;
+          text-align: center;
+          padding: 1.5rem;
+          margin-top: 2rem;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+
+        /* Responsive styles */
+        @media screen and (min-width: 768px) {
+            .album {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 900px;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+          .album {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1300px;
+            gap: 2rem;
+          }
+          .album figure {
+            max-width: 100%;
+          }
+        }
+
+        /* Class to replace inline style for the 'No temples found' message (Fix 2) */
+        .no-temples-message {
+            text-align: center; 
+            grid-column: 1 / -1; 
+            font-size: 1.2rem; 
+            color: #555;
+            padding: 2rem 0; /* Add visual space */
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1 class="logo">Temples of God</h1>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#" data-filter="all" class="active">Home</a></li>
+                <li><a href="#" data-filter="old">Old</a></li>
+                <li><a href="#" data-filter="new">New</a></li>
+                <li><a href="#" data-filter="large">Large</a></li>
+                <li><a href="#" data-filter="small">Small</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 class="page-title">All Temples (Home)</h2>
+        <div class="album" id="temple-gallery">
+            <!-- Temple cards will be generated here by JavaScript -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy;<span id="copyrightYear"></span> | Temple Album Project | Last Modified: <span id="lastModified"></span></p>
+    </footer>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <h1 class="logo">Temple Album</h1>
+    <!-- JavaScript block (Removed 'defer' attribute - Fix 1) -->
+    <script>
+        // JavaScript Logic for Data and Filtering
 
-    <nav id="mainNav" aria-label="Main navigation">
-      <ul>
-        <li><a href="#" data-filter="all" class="active">Home</a></li>
-        <li><a href="#" data-filter="old">Old</a></li>
-        <li><a href="#" data-filter="new">New</a></li>
-        <li><a href="#" data-filter="large">Large</a></li>
-        <li><a href="#" data-filter="small">Small</a></li>
-      </ul>
-    </nav>
-  </header>
+        // UPDATED Array of temple objects. Hartford Connecticut image URL updated.
+        const temples = [
+          {
+            templeName: "Aba Nigeria",
+            location: "Aba, Nigeria",
+            dedicated: "2005, August, 7",
+            area: 11500,
+            imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg"
+          },
+          {
+            templeName: "Manti Utah",
+            location: "Manti, Utah, United States",
+            dedicated: "1888, May, 21",
+            area: 74792,
+            imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
+          },
+          {
+            templeName: "Payson Utah",
+            location: "Payson, Utah, United States",
+            dedicated: "2015, June, 7",
+            area: 96630,
+            imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
+          },
+          {
+            templeName: "Yigo Guam",
+            location: "Yigo, Guam",
+            dedicated: "2020, May, 2",
+            area: 6861,
+            imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg"
+          },
+          {
+            templeName: "Washington D.C.",
+            location: "Kensington, Maryland, United States",
+            dedicated: "1974, November, 19",
+            area: 156558,
+            imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg"
+          },
+          {
+            templeName: "Lima Perú",
+            location: "Lima, Perú",
+            dedicated: "1986, January, 10",
+            area: 9600,
+            imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
+          },
+          {
+            templeName: "Mexico City Mexico",
+            location: "Mexico City, Mexico",
+            dedicated: "1983, December, 2",
+            area: 116642,
+            imageUrl:
+            "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
+          },
+          // Hartford Connecticut: Updated to use the raw GitHub link provided by the user
+          {
+            templeName: "Hartford Connecticut",
+            location: "Farmington, Connecticut, United States",
+            dedicated: "2016, November, 20",
+            area: 38000,
+            imageUrl: "https://raw.githubusercontent.com/donx10austin/hartford-connecticut-temple/090ba5f4133321f8fee305cf15e728db4189c0ad/hartford_connecticut_temples_exterior_steeples_clouds.jpeg"
+          },
+          // Sapporo Japan: Uses previous GitHub raw link
+          {
+            templeName: "Sapporo Japan",
+            location: "Sapporo, Hokkaido, Japan",
+            dedicated: "2016, August, 21",
+            area: 48480,
+            imageUrl: "https://raw.githubusercontent.com/donx10austin/sapparo-japan-temple/09f2d24661c40eb61e0adf966cddaa39aac69716/sapporo_japan_temple_night_photo.jpeg" 
+          },
+          // Oakland California: Uses previous GitHub raw link
+          {
+            templeName: "Oakland California",
+            location: "Oakland, California, United States",
+            dedicated: "1964, November, 17",
+            area: 87948,
+            imageUrl: "https://raw.githubusercontent.com/donx10austin/oakland-temple-images/a50f9413a378586a85d10ba17aa3be2d4c9b52c9/oakland_california_temple.png" 
+          },
+          // London England: Uses previous GitHub raw link
+          {
+            templeName: "London England",
+            location: "Newchapel, England",
+            dedicated: "1958, September, 7",
+            area: 42777,
+            imageUrl: "https://raw.githubusercontent.com/donx10austin/london-england-temple/149bc390e3c66bfed2304f4974e8b53af92d061c/london_england_temple_lds.jpeg" 
+          },
+          // Rome Italy: Uses previous GitHub raw link
+          {
+            templeName: "Rome Italy",
+            location: "Rome, Italy",
+            dedicated: "2019, March, 10",
+            area: 40000,
+            imageUrl: "https://raw.githubusercontent.com/donx10austin/rome-italy-temple/4535843a6dd6322ab9a1184651d34864596c4e4a/rome_italy_temple.jpeg" 
+          },
+        ];
 
-  <!-- ===== PAGE TITLE ===== -->
-  <main>
-    <h2 class="page-title">All Temples</h2>
+        // Constants for filtering criteria
+        const OLD_TEMPLES_YEAR = 1900;    // Old: before 1900
+        const NEW_TEMPLES_YEAR = 2000;    // New: after 2000
+        const LARGE_TEMPLES_AREA = 90000; // Large: larger than 90,000 sq ft
+        const SMALL_TEMPLES_AREA = 10000; // Small: smaller than 10,000 sq ft
 
-    <!-- GALLERY content is dynamically loaded here -->
-    <section class="album" id="temple-gallery" aria-label="Temple photo gallery">
-      <!-- Image elements will be rendered here by JS -->
-    </section>
-  </main>
+        // Get DOM elements
+        const gallery = document.getElementById('temple-gallery');
+        const pageTitle = document.querySelector('.page-title');
+        const navLinks = document.querySelectorAll('#mainNav a');
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; <span id="copyrightYear"></span> 🌸 Austin Anumudu 🌸 Nigeria</p>
-    <p>Last Modification: <span id="lastModified"></span></p>
-  </footer>
+        // Helper function to extract the year from the dedicated string (e.g., "2005, August, 7" -> 2005)
+        function getDedicatedYear(dedicatedString) {
+            // The format is "YYYY, Month, Day"
+            const year = dedicatedString.split(',')[0].trim();
+            return parseInt(year);
+        }
 
-  <script>
-    // JavaScript Logic for Data and Filtering
+        // --- Core Functions ---
 
-    // UPDATED Array of temple objects. Hartford Connecticut image URL updated.
-    const temples = [
-      {
-        templeName: "Aba Nigeria",
-        location: "Aba, Nigeria",
-        dedicated: "2005, August, 7",
-        area: 11500,
-        imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg"
-      },
-      {
-        templeName: "Manti Utah",
-        location: "Manti, Utah, United States",
-        dedicated: "1888, May, 21",
-        area: 74792,
-        imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
-      },
-      {
-        templeName: "Payson Utah",
-        location: "Payson, Utah, United States",
-        dedicated: "2015, June, 7",
-        area: 96630,
-        imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
-      },
-      {
-        templeName: "Yigo Guam",
-        location: "Yigo, Guam",
-        dedicated: "2020, May, 2",
-        area: 6861,
-        imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg"
-      },
-      {
-        templeName: "Washington D.C.",
-        location: "Kensington, Maryland, United States",
-        dedicated: "1974, November, 19",
-        area: 156558,
-        imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg"
-      },
-      {
-        templeName: "Lima Perú",
-        location: "Lima, Perú",
-        dedicated: "1986, January, 10",
-        area: 9600,
-        imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
-      },
-      {
-        templeName: "Mexico City Mexico",
-        location: "Mexico City, Mexico",
-        dedicated: "1983, December, 2",
-        area: 116642,
-        imageUrl:
-        "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
-      },
-      // Hartford Connecticut: Updated to use the raw GitHub link provided by the user
-      {
-        templeName: "Hartford Connecticut",
-        location: "Farmington, Connecticut, United States",
-        dedicated: "2016, November, 20",
-        area: 38000,
-        imageUrl: "https://raw.githubusercontent.com/donx10austin/hartford-connecticut-temple/090ba5f4133321f8fee305cf15e728db4189c0ad/hartford_connecticut_temples_exterior_steeples_clouds.jpeg"
-      },
-      // Sapporo Japan: Uses previous GitHub raw link
-      {
-        templeName: "Sapporo Japan",
-        location: "Sapporo, Hokkaido, Japan",
-        dedicated: "2016, August, 21",
-        area: 48480,
-        imageUrl: "https://raw.githubusercontent.com/donx10austin/sapparo-japan-temple/09f2d24661c40eb61e0adf966cddaa39aac69716/sapporo_japan_temple_night_photo.jpeg" 
-      },
-      // Oakland California: Uses previous GitHub raw link
-      {
-        templeName: "Oakland California",
-        location: "Oakland, California, United States",
-        dedicated: "1964, November, 17",
-        area: 87948,
-        imageUrl: "https://raw.githubusercontent.com/donx10austin/oakland-temple-images/a50f9413a378586a85d10ba17aa3be2d4c9b52c9/oakland_california_temple.png" 
-      },
-      // London England: Uses previous GitHub raw link
-      {
-        templeName: "London England",
-        location: "Newchapel, England",
-        dedicated: "1958, September, 7",
-        area: 42777,
-        imageUrl: "https://raw.githubusercontent.com/donx10austin/london-england-temple/149bc390e3c66bfed2304f4974e8b53af92d061c/london_england_temple_lds.jpeg" 
-      },
-      // Rome Italy: Uses previous GitHub raw link
-      {
-        templeName: "Rome Italy",
-        location: "Rome, Italy",
-        dedicated: "2019, March, 10",
-        area: 40000,
-        imageUrl: "https://raw.githubusercontent.com/donx10austin/rome-italy-temple/4535843a6dd6322ab9a1184651d34864596c4e4a/rome_italy_temple.jpeg" 
-      },
-    ];
-    
-    // Constants for filtering criteria
-    const OLD_TEMPLES_YEAR = 1900;    // Old: before 1900
-    const NEW_TEMPLES_YEAR = 2000;    // New: after 2000
-    const LARGE_TEMPLES_AREA = 90000; // Large: larger than 90,000 sq ft
-    const SMALL_TEMPLES_AREA = 10000; // Small: smaller than 10,000 sq ft
+        // Function to create and render the HTML for the gallery
+        const createTempleCards = (filteredTemples) => {
+            gallery.innerHTML = ''; // Clear existing content
 
-    // Get DOM elements
-    const gallery = document.getElementById('temple-gallery');
-    const pageTitle = document.querySelector('.page-title');
-    const navLinks = document.querySelectorAll('#mainNav a');
+            filteredTemples.forEach(temple => {
+                const figure = document.createElement('figure');
+                
+                // Check if the temple is considered "large" and apply the 'is-large' class
+                if (temple.area > LARGE_TEMPLES_AREA) {
+                    figure.classList.add('is-large');
+                }
+                
+                // 1. Image
+                const img = document.createElement('img');
+                img.src = temple.imageUrl; 
+                img.alt = temple.templeName;
+                img.loading = 'lazy'; // Required Lazy loading 
 
-    // Helper function to extract the year from the dedicated string (e.g., "2005, August, 7" -> 2005)
-    function getDedicatedYear(dedicatedString) {
-        // The format is "YYYY, Month, Day"
-        const year = dedicatedString.split(',')[0].trim();
-        return parseInt(year);
-    }
+                // 2. Caption
+                const figcaption = document.createElement('figcaption');
+                // Display location, full dedicated date, and area
+                figcaption.innerHTML = `
+                    ${temple.templeName}<br>
+                    <small>Location: ${temple.location}<br>
+                    Dedicated: ${temple.dedicated}<br>
+                    Size: ${temple.area.toLocaleString()} sq ft</small>`;
 
-    // --- Core Functions ---
+                figure.appendChild(img);
+                figure.appendChild(figcaption);
+                gallery.appendChild(figure);
+            });
+        };
 
-    // Function to create and render the HTML for the gallery
-    const createTempleCards = (filteredTemples) => {
-        gallery.innerHTML = ''; // Clear existing content
+        // Function to handle the actual filtering based on the data-filter attribute
+        const filterTemples = (filter) => {
+            let filteredList = [];
+            let title = '';
 
-        filteredTemples.forEach(temple => {
-            const figure = document.createElement('figure');
-            
-            // Check if the temple is considered "large" and apply the 'is-large' class
-            if (temple.area > LARGE_TEMPLES_AREA) {
-                figure.classList.add('is-large');
+            switch (filter) {
+                case 'all':
+                    filteredList = temples;
+                    title = 'All Temples (Home)';
+                    break;
+                case 'old':
+                    // Temples built BEFORE 1900
+                    filteredList = temples.filter(t => t.dedicatedYear < OLD_TEMPLES_YEAR);
+                    title = `Dedicated Before ${OLD_TEMPLES_YEAR}`;
+                    break;
+                case 'new':
+                    // Temples built AFTER 2000
+                    filteredList = temples.filter(t => t.dedicatedYear > NEW_TEMPLES_YEAR);
+                    title = `Dedicated After ${NEW_TEMPLES_YEAR}`;
+                    break;
+                case 'large':
+                    // Temples LARGER THAN 90,000 sq ft
+                    filteredList = temples.filter(t => t.area > LARGE_TEMPLES_AREA);
+                    title = `Large Temples (Over ${LARGE_TEMPLES_AREA.toLocaleString()} sq ft)`;
+                    break;
+                case 'small':
+                    // Temples SMALLER THAN 10,000 sq ft
+                    filteredList = temples.filter(t => t.area < SMALL_TEMPLES_AREA);
+                    title = `Smaller Temples (Under ${SMALL_TEMPLES_AREA.toLocaleString()} sq ft)`;
+                    break;
+                default:
+                    filteredList = temples;
+                    title = 'All Temples';
+                    break;
             }
             
-            // 1. Image
-            const img = document.createElement('img');
-            img.src = temple.imageUrl; 
-            img.alt = temple.templeName;
-            img.loading = 'lazy'; // Required Lazy loading 
+            // Handle case where no temples match the filter
+            if (filteredList.length === 0) {
+                // Using CSS class instead of inline style (Fix 2)
+                gallery.innerHTML = `<p class="no-temples-message">No temples found for this filter criteria.</p>`;
+                pageTitle.textContent = title;
+                return;
+            }
 
-            // 2. Caption
-            const figcaption = document.createElement('figcaption');
-            // Display location, full dedicated date, and area
-            figcaption.innerHTML = `
-                ${temple.templeName}<br>
-                <small>Location: ${temple.location}<br>
-                Dedicated: ${temple.dedicated}<br>
-                Size: ${temple.area.toLocaleString()} sq ft</small>`;
-
-            figure.appendChild(img);
-            figure.appendChild(figcaption);
-            gallery.appendChild(figure);
-        });
-    };
-
-    // Function to handle the actual filtering based on the data-filter attribute
-    const filterTemples = (filter) => {
-        let filteredList = [];
-        let title = '';
-
-        switch (filter) {
-            case 'all':
-                filteredList = temples;
-                title = 'All Temples (Home)';
-                break;
-            case 'old':
-                // Temples built BEFORE 1900
-                filteredList = temples.filter(t => t.dedicatedYear < OLD_TEMPLES_YEAR);
-                title = `Dedicated Before ${OLD_TEMPLES_YEAR}`;
-                break;
-            case 'new':
-                // Temples built AFTER 2000
-                filteredList = temples.filter(t => t.dedicatedYear > NEW_TEMPLES_YEAR);
-                title = `Dedicated After ${NEW_TEMPLES_YEAR}`;
-                break;
-            case 'large':
-                // Temples LARGER THAN 90,000 sq ft
-                filteredList = temples.filter(t => t.area > LARGE_TEMPLES_AREA);
-                title = `Large Temples (Over ${LARGE_TEMPLES_AREA.toLocaleString()} sq ft)`;
-                break;
-            case 'small':
-                // Temples SMALLER THAN 10,000 sq ft
-                filteredList = temples.filter(t => t.area < SMALL_TEMPLES_AREA);
-                title = `Smaller Temples (Under ${SMALL_TEMPLES_AREA.toLocaleString()} sq ft)`;
-                break;
-            default:
-                filteredList = temples;
-                title = 'All Temples';
-                break;
-        }
-        
-        // Handle case where no temples match the filter
-        if (filteredList.length === 0) {
-            gallery.innerHTML = `<p style="text-align: center; grid-column: 1 / -1; font-size: 1.2rem; color: #555;">No temples found for this filter criteria.</p>`;
+            // Update the page title and render the filtered list
             pageTitle.textContent = title;
-            return;
-        }
+            createTempleCards(filteredList);
+        };
 
-        // Update the page title and render the filtered list
-        pageTitle.textContent = title;
-        createTempleCards(filteredList);
-    };
+        // --- Event Listeners and Initialization ---
 
-    // --- Event Listeners and Initialization ---
-
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Preprocess data to add a numeric year property for easy filtering
-        temples.forEach(temple => {
-            temple.dedicatedYear = getDedicatedYear(temple.dedicated);
-        });
-        
-        // 2. Footer initialization
-        const cy = document.getElementById('copyrightYear');
-        const lm = document.getElementById('lastModified');
-        
-        // Ensuring valid JavaScript reference for footer output
-        if (cy) cy.textContent = new Date().getFullYear();
-        if (lm) lm.textContent = document.lastModified;
-
-        // 3. Add click listener to all navigation links for filtering
-        navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault(); // Prevent default link behavior
-                
-                // Get the filter type from the data-filter attribute
-                const filterType = link.getAttribute('data-filter');
-                filterTemples(filterType);
-
-                // Update active link class for styling
-                navLinks.forEach(nav => nav.classList.remove('active'));
-                link.classList.add('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Preprocess data to add a numeric year property for easy filtering
+            temples.forEach(temple => {
+                temple.dedicatedYear = getDedicatedYear(temple.dedicated);
             });
-        });
+            
+            // 2. Footer initialization
+            const cy = document.getElementById('copyrightYear');
+            const lm = document.getElementById('lastModified');
+            
+            // Ensuring valid JavaScript reference for footer output
+            if (cy) cy.textContent = new Date().getFullYear();
+            if (lm) lm.textContent = document.lastModified;
 
-        // 4. Initial load: Display all temples
-        filterTemples('all'); 
-    });
-  </script>
+            // 3. Add click listener to all navigation links for filtering
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    
+                    // Get the filter type from the data-filter attribute
+                    const filterType = link.getAttribute('data-filter');
+                    filterTemples(filterType);
+
+                    // Update active link class for styling
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            // 4. Initial load: Display all temples
+            filterTemples('all'); 
+        });
+    </script>
 </body>
 </html>

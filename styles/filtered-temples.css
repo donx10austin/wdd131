@@ -58,7 +58,6 @@ header {
 #mainNav a {
   color: white;
   text-decoration: none;
-  /* Updated to font-weight 700 to match the requested font load (Fix 4) */
   font-weight: 700;
   font-size: 1.1rem; 
   letter-spacing: 0.5px;
@@ -84,23 +83,53 @@ header {
   color: var(--purple);
 }
 
-/* GALLERY - mobile (1 column grid) */
+/* ---------------------------------------------------------------- */
+/* --- CRITICAL ALIGNMENT CHANGES START HERE --- */
+/* ---------------------------------------------------------------- */
+
+/* GALLERY - The main grid container */
 .album {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem; 
-  padding: 1rem;
-  justify-items: center;
+    /* Use CSS Grid to create columns */
+    display: grid;
+    /* Default for mobile is 1 column */
+    grid-template-columns: 1fr;
+    gap: 1.5rem; 
+    padding: 1rem;
+    /* Center the entire gallery container */
+    margin: 0 auto; 
+    max-width: 1300px; /* Use a generous max-width for the gallery */
 }
 
+/* TEMPLE CARD - The figure element (each item in the grid) */
 .album figure {
-  width: 90%;
-  max-width: 450px; 
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 1. Ensure card takes up full column height (Crucial for row alignment) */
+    height: 100%; 
+    /* 2. Make card a Flex container to manage content inside */
+    display: flex;
+    flex-direction: column;
+    /* 3. Ensure the card fills the width of its grid cell */
+    width: 100%; 
+    max-width: none; /* Remove any limiting max-width */
+    
+    /* Center on mobile (when it's the only item) if the width is less than 100% */
+    /* On mobile, we still want it centered within the 1fr column */
+    /* Let's re-introduce the size constraints for mobile gracefully */
+    
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mobile Constraint: Re-apply a smaller width constraint to the figure on very small screens */
+@media screen and (max-width: 500px) {
+    .album figure {
+        width: 90%; 
+        max-width: 450px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* CSS for Large Temples - Gold border highlight */
@@ -115,11 +144,11 @@ header {
 }
 
 .album img {
-  width: 100%;
-  height: 250px; 
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
+    width: 100%;
+    height: 250px; 
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
 .album figure:hover img {
@@ -127,42 +156,47 @@ header {
 }
 
 .album figcaption {
-  padding: 1rem 0.75rem;
-  color: #444;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.1rem;
+    padding: 1rem 0.75rem;
+    color: #444;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    /* 4. Pushes the caption to the bottom of the card (Crucial for caption alignment) */
+    margin-top: auto; 
 }
 
 /* FOOTER */
 footer {
-  background: var(--purple);
-  color: white;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+    background: var(--purple);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 /* Responsive styles */
 @media screen and (min-width: 768px) {
     .album {
+        /* Medium screens get 2 columns */
         grid-template-columns: repeat(2, 1fr);
         max-width: 900px;
-        margin: 0 auto;
+    }
+    .album figure {
+        /* On medium/large screens, the figure MUST be 100% width to fill the grid cell */
+        width: 100%; 
+        max-width: none;
     }
 }
 
 @media screen and (min-width: 1024px) {
-  .album {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1300px;
-    gap: 2rem;
-  }
-  .album figure {
-    max-width: 100%;
-  }
+    .album {
+        /* Large screens get 3 columns, matching your desired layout */
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1300px;
+        gap: 2rem;
+    }
 }
 
 /* Class to replace inline style for the 'No temples found' message (Fix 2) */
@@ -171,5 +205,5 @@ footer {
     grid-column: 1 / -1; 
     font-size: 1.2rem; 
     color: #555;
-    padding: 2rem 0; /* Add visual space */
+    padding: 2rem 0;
 }

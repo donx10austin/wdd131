@@ -1,5 +1,6 @@
 // Array of Temple Objects (12 Entries)
 const temples = [
+  // ... (temple data is unchanged) ...
   {
     templeName: "Aba Nigeria",
     location: "Aba, Nigeria",
@@ -131,6 +132,7 @@ const createTempleCards = (filteredTemples) => {
 
         // 2. Caption
         const figcaption = document.createElement('figcaption');
+        // REMOVED: The line that previously displayed the image URL
         figcaption.innerHTML = `
             <h3>${temple.templeName}</h3>
             <p>Location: ${temple.location}</p>
@@ -188,35 +190,32 @@ const filterTemples = (filter) => {
 };
 
 // --- INITIALIZATION ---
-
-document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Preprocess data: add 'dedicatedYear' property for easier filtering
-    temples.forEach(temple => {
-        temple.dedicatedYear = getDedicatedYear(temple.dedicated);
-    });
-    
-    // 2. Footer initialization (Copyright Year, Last Modified)
-    const cy = document.getElementById('copyrightYear');
-    const lm = document.getElementById('lastModified');
-    
-    if (cy) cy.textContent = new Date().getFullYear();
-    if (lm) lm.textContent = document.lastModified;
-
-    // 3. Add click listener to all navigation links for filtering
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault(); 
-            
-            const filterType = link.getAttribute('data-filter');
-            filterTemples(filterType);
-
-            // Update active link class for styling
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            link.classList.add('active');
-        });
-    });
-
-    // 4. Initial load: Display all temples
-    filterTemples('all'); 
+// 1. Preprocess data: add 'dedicatedYear' property for easier filtering
+temples.forEach(temple => {
+    temple.dedicatedYear = getDedicatedYear(temple.dedicated);
 });
+
+// 2. Footer initialization (Copyright Year, Last Modified)
+const cy = document.getElementById('copyrightYear');
+const lm = document.getElementById('lastModified');
+
+if (cy) cy.textContent = new Date().getFullYear();
+if (lm) lm.textContent = document.lastModified;
+
+// 3. Add click listener to all navigation links for filtering
+navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault(); 
+        
+        const filterType = link.getAttribute('data-filter');
+        filterTemples(filterType);
+
+        // Update active link class for styling
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+
+// 4. Initial load: Display all temples
+filterTemples('all');

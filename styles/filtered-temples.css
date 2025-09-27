@@ -1,7 +1,7 @@
-
+/* General & Typography */
 :root {
-    --primary-color: #0077b6; 
-    --secondary-color: #90e0ef; 
+    --primary-color: #0077b6; /* A deep blue for header/accents */
+    --secondary-color: #90e0ef; /* A light blue for backgrounds */
     --text-dark: #333;
     --text-light: #fff;
     --bg-light: #f4f4f4;
@@ -20,11 +20,13 @@ body {
     min-height: 100vh;
 }
 
+/* ---------------- HEADER & NAVIGATION ALIGNMENT FIX ---------------- */
 header {
     background-color: var(--primary-color);
     color: var(--text-light);
     padding: 1rem 2rem;
     display: flex;
+    /* Pushes Temples of God (logo) to the left and Nav to the right */
     justify-content: space-between; 
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -153,12 +155,16 @@ footer {
     font-size: 0.85rem;
 }
 
+/* ---------------- MEDIA QUERIES (3-COLUMN MAX FIX) ---------------- */
+
+/* Medium Screens: 2 Columns */
 @media (min-width: 600px) {
     .album {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Large Screens: Max 3 Columns (This limits the grid to 3 columns) */
 @media (min-width: 900px) {
     .album {
         grid-template-columns: repeat(3, 1fr);

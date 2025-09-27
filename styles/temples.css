@@ -102,6 +102,12 @@ header {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* CSS for Large Temples - Gold border highlight */
+.album figure.is-large {
+    border: 4px solid #ffd700; 
+    box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
+}
+
 .album figure:hover {
     transform: translateY(-8px); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);

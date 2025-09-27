@@ -1,6 +1,6 @@
 // JavaScript Logic for Data and Filtering
 
-// UPDATED Array of temple objects with three new entries
+// UPDATED Array of temple objects. Hartford Connecticut image URL updated.
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -58,33 +58,49 @@ const temples = [
     imageUrl:
     "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
+  // Hartford Connecticut: Updated to use the raw GitHub link provided by the user
   {
-    templeName: "Kinshasa DRC",
-    location: "Kinshasa, Democratic Republic of Congo",
-    dedicated: "2019, April, 14",
-    area: 37000,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/kinshasa-democratic-republic-of-congo/400x250/01-Kinshasa-DRC-Temple-2244247.jpg"
+    templeName: "Hartford Connecticut",
+    location: "Farmington, Connecticut, United States",
+    dedicated: "2016, November, 20",
+    area: 38000,
+    imageUrl: "https://raw.githubusercontent.com/donx10austin/hartford-connecticut-temple/090ba5f4133321f8fee305cf15e728db4189c0ad/hartford_connecticut_temples_exterior_steeples_clouds.jpeg"
   },
+  // Sapporo Japan: Uses previous GitHub raw link
   {
     templeName: "Sapporo Japan",
     location: "Sapporo, Hokkaido, Japan",
     dedicated: "2016, August, 21",
     area: 48480,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sapporo-japan/400x250/sapporo-japan-exterior-night-1945115.jpg"
+    imageUrl: "https://raw.githubusercontent.com/donx10austin/sapparo-japan-temple/09f2d24661c40eb61e0adf966cddaa39aac69716/sapporo_japan_temple_night_photo.jpeg" 
   },
+  // Oakland California: Uses previous GitHub raw link
   {
     templeName: "Oakland California",
     location: "Oakland, California, United States",
     dedicated: "1964, November, 17",
     area: 87948,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/oakland-california/400x250/oakland-temple-lds-801550-wallpaper.jpg"
+    imageUrl: "https://raw.githubusercontent.com/donx10austin/oakland-temple-images/a50f9413a378586a85d10ba17aa3be2d4c9b52c9/oakland_california_temple.png" 
+  },
+  // London England: Uses previous GitHub raw link
+  {
+    templeName: "London England",
+    location: "Newchapel, England",
+    dedicated: "1958, September, 7",
+    area: 42777,
+    imageUrl: "https://raw.githubusercontent.com/donx10austin/london-england-temple/149bc390e3c66bfed2304f4974e8b53af92d061c/london_england_temple_lds.jpeg" 
+  },
+  // Rome Italy: Uses previous GitHub raw link
+  {
+    templeName: "Rome Italy",
+    location: "Rome, Italy",
+    dedicated: "2019, March, 10",
+    area: 40000,
+    imageUrl: "https://raw.githubusercontent.com/donx10austin/rome-italy-temple/4535843a6dd6322ab9a1184651d34864596c4e4a/rome_italy_temple.jpeg" 
   },
 ];
 
-// Constants for filtering criteria (UPDATED)
+// Constants for filtering criteria
 const OLD_TEMPLES_YEAR = 1900;    // Old: before 1900
 const NEW_TEMPLES_YEAR = 2000;    // New: after 2000
 const LARGE_TEMPLES_AREA = 90000; // Large: larger than 90,000 sq ft
@@ -111,6 +127,11 @@ const createTempleCards = (filteredTemples) => {
     filteredTemples.forEach(temple => {
         const figure = document.createElement('figure');
         
+        // Check if the temple is considered "large" and apply the 'is-large' class
+        if (temple.area > LARGE_TEMPLES_AREA) {
+            figure.classList.add('is-large');
+        }
+        
         // 1. Image
         const img = document.createElement('img');
         img.src = temple.imageUrl; 
@@ -132,7 +153,7 @@ const createTempleCards = (filteredTemples) => {
     });
 };
 
-// Function to handle the actual filtering based on the data-filter attribute (UPDATED LOGIC)
+// Function to handle the actual filtering based on the data-filter attribute
 const filterTemples = (filter) => {
     let filteredList = [];
     let title = '';

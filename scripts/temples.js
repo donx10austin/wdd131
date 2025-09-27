@@ -1,6 +1,6 @@
 // JavaScript Logic for Data and Filtering
 
-// UPDATED Array of temple objects. Hartford Connecticut image URL updated.
+// Array of temple objects.
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -58,7 +58,7 @@ const temples = [
     imageUrl:
     "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
-  // Hartford Connecticut: Updated to use the raw GitHub link provided by the user
+  // Hartford Connecticut
   {
     templeName: "Hartford Connecticut",
     location: "Farmington, Connecticut, United States",
@@ -66,7 +66,7 @@ const temples = [
     area: 38000,
     imageUrl: "https://raw.githubusercontent.com/donx10austin/hartford-connecticut-temple/090ba5f4133321f8fee305cf15e728db4189c0ad/hartford_connecticut_temples_exterior_steeples_clouds.jpeg"
   },
-  // Sapporo Japan: Uses previous GitHub raw link
+  // Sapporo Japan
   {
     templeName: "Sapporo Japan",
     location: "Sapporo, Hokkaido, Japan",
@@ -74,7 +74,7 @@ const temples = [
     area: 48480,
     imageUrl: "https://raw.githubusercontent.com/donx10austin/sapparo-japan-temple/09f2d24661c40eb61e0adf966cddaa39aac69716/sapporo_japan_temple_night_photo.jpeg" 
   },
-  // Oakland California: Uses previous GitHub raw link
+  // Oakland California
   {
     templeName: "Oakland California",
     location: "Oakland, California, United States",
@@ -82,7 +82,7 @@ const temples = [
     area: 87948,
     imageUrl: "https://raw.githubusercontent.com/donx10austin/oakland-temple-images/a50f9413a378586a85d10ba17aa3be2d4c9b52c9/oakland_california_temple.png" 
   },
-  // London England: Uses previous GitHub raw link
+  // London England
   {
     templeName: "London England",
     location: "Newchapel, England",
@@ -90,7 +90,7 @@ const temples = [
     area: 42777,
     imageUrl: "https://raw.githubusercontent.com/donx10austin/london-england-temple/149bc390e3c66bfed2304f4974e8b53af92d061c/london_england_temple_lds.jpeg" 
   },
-  // Rome Italy: Uses previous GitHub raw link
+  // Rome Italy
   {
     templeName: "Rome Italy",
     location: "Rome, Italy",
@@ -101,8 +101,8 @@ const temples = [
 ];
 
 // Constants for filtering criteria
-const OLD_TEMPLES_YEAR = 1900;    // Old: before 1900
-const NEW_TEMPLES_YEAR = 2000;    // New: after 2000
+const OLD_TEMPLES_YEAR = 1900;    // Old: before 1900
+const NEW_TEMPLES_YEAR = 2000;    // New: after 2000
 const LARGE_TEMPLES_AREA = 90000; // Large: larger than 90,000 sq ft
 const SMALL_TEMPLES_AREA = 10000; // Small: smaller than 10,000 sq ft
 
@@ -191,7 +191,7 @@ const filterTemples = (filter) => {
     
     // Handle case where no temples match the filter
     if (filteredList.length === 0) {
-        // Using CSS class instead of inline style (Fix 2)
+        // Uses the CSS class defined in styles/main.css
         gallery.innerHTML = `<p class="no-temples-message">No temples found for this filter criteria.</p>`;
         pageTitle.textContent = title;
         return;

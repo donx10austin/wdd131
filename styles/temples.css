@@ -1,4 +1,4 @@
-/* CSS Consolidated for the single-file requirement */
+/* CSS for WDD 131 Final Project - Temple Album */
 
 :root {
   --purple: #4b006e;
@@ -58,7 +58,6 @@ header {
 #mainNav a {
   color: white;
   text-decoration: none;
-  /* Updated to font-weight 700 to match the requested font load (Fix 4) */
   font-weight: 700;
   font-size: 1.1rem; 
   letter-spacing: 0.5px;
@@ -165,11 +164,11 @@ footer {
   }
 }
 
-/* Class to replace inline style for the 'No temples found' message (Fix 2) */
+/* Class for 'No temples found' message */
 .no-temples-message {
     text-align: center; 
     grid-column: 1 / -1; 
     font-size: 1.2rem; 
     color: #555;
-    padding: 2rem 0; /* Add visual space */
+    padding: 2rem 0; 
 }

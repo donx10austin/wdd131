@@ -1,209 +1,122 @@
-/* CSS Consolidated for the single-file requirement */
-
-:root {
-  --purple: #4b006e;
-}
-
+/* ========================
+   Global Styles
+======================== */
 body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #fff;
-}
-
-/* HEADER */
-header {
-  background: var(--purple);
-  color: white;
-  padding: 1rem 2rem;
-  overflow: hidden;
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; 
-}
-
-.logo {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-/* NAVIGATION */
-#mainNav {
-  width: auto; 
-}
-
-#mainNav ul {
-  list-style: none;
+  font-family: Arial, sans-serif;
+  background: #f4f4f9;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1rem; 
-  flex-wrap: wrap; 
-  justify-content: center; 
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    #mainNav {
-        margin-top: 1rem;
-    }
-}
-
-#mainNav a {
+/* ========================
+   Header
+======================== */
+header {
+  background: #5a2a83;
   color: white;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem; 
-  letter-spacing: 0.5px;
-  padding: 0.5rem; 
-  transition: color 0.3s ease;
-  cursor: pointer; 
-  border-radius: 4px;
-}
-
-/* required hover and active state */
-#mainNav a:hover,
-#mainNav a.active { 
-  color: #333; 
-  background-color: #ffd700; 
-}
-
-/* PAGE TITLE */
-.page-title {
+  padding: 1rem;
   text-align: center;
-  margin: 1.5rem 0;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--purple);
 }
 
-/* ---------------------------------------------------------------- */
-/* --- CRITICAL ALIGNMENT CHANGES START HERE --- */
-/* ---------------------------------------------------------------- */
-
-/* GALLERY - The main grid container */
-.album {
-    /* Use CSS Grid to create columns */
-    display: grid;
-    /* Default for mobile is 1 column */
-    grid-template-columns: 1fr;
-    gap: 1.5rem; 
-    padding: 1rem;
-    /* Center the entire gallery container */
-    margin: 0 auto; 
-    max-width: 1300px; /* Use a generous max-width for the gallery */
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
-/* TEMPLE CARD - The figure element (each item in the grid) */
-.album figure {
-    /* 1. Ensure card takes up full column height (Crucial for row alignment) */
-    height: 100%; 
-    /* 2. Make card a Flex container to manage content inside */
-    display: flex;
-    flex-direction: column;
-    /* 3. Ensure the card fills the width of its grid cell */
-    width: 100%; 
-    max-width: none; /* Remove any limiting max-width */
-    
-    /* Center on mobile (when it's the only item) if the width is less than 100% */
-    /* On mobile, we still want it centered within the 1fr column */
-    /* Let's re-introduce the size constraints for mobile gracefully */
-    
-    background: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ========================
+   Navigation
+======================== */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: #eee;
 }
 
-/* Mobile Constraint: Re-apply a smaller width constraint to the figure on very small screens */
-@media screen and (max-width: 500px) {
-    .album figure {
-        width: 90%; 
-        max-width: 450px; 
-        margin-left: auto;
-        margin-right: auto;
-    }
+nav li {
+  margin: 0 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
 }
 
-/* CSS for Large Temples - Gold border highlight */
-.album figure.is-large {
-    border: 4px solid #ffd700; 
-    box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
+nav li:hover,
+nav li.active {
+  background: #5a2a83;
+  color: white;
+  transition: background 0.3s ease;
 }
 
-.album figure:hover {
-    transform: translateY(-8px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+/* ========================
+   Main Content
+======================== */
+main {
+  flex: 1;
+  padding: 20px;
 }
 
-.album img {
-    width: 100%;
-    height: 250px; 
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
+.temple-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-.album figure:hover img {
-    transform: scale(1.05);
+/* ========================
+   Temple Cards
+======================== */
+.temple-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
-.album figcaption {
-    padding: 1rem 0.75rem;
-    color: #444;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.1rem;
-    /* 4. Pushes the caption to the bottom of the card (Crucial for caption alignment) */
-    margin-top: auto; 
+.temple-card:hover {
+  transform: translateY(-5px);
 }
 
-/* FOOTER */
+.temple-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.temple-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+.temple-card span {
+  font-weight: bold;
+  color: #5a2a83;
+  text-transform: uppercase;
+}
+
+.temple-card img {
+  margin-top: 10px;
+  max-width: 100%;
+  border-radius: 6px;
+  height: auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ========================
+   Footer
+======================== */
 footer {
-    background: var(--purple);
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-/* Responsive styles */
-@media screen and (min-width: 768px) {
-    .album {
-        /* Medium screens get 2 columns */
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 900px;
-    }
-    .album figure {
-        /* On medium/large screens, the figure MUST be 100% width to fill the grid cell */
-        width: 100%; 
-        max-width: none;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .album {
-        /* Large screens get 3 columns, matching your desired layout */
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1300px;
-        gap: 2rem;
-    }
-}
-
-/* Class to replace inline style for the 'No temples found' message (Fix 2) */
-.no-temples-message {
-    text-align: center; 
-    grid-column: 1 / -1; 
-    font-size: 1.2rem; 
-    color: #555;
-    padding: 2rem 0;
+  background: #5a2a83;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 0.9rem;
 }

@@ -1,239 +1,125 @@
-// JavaScript Logic for Data and Filtering
-
-// UPDATED Array of temple objects. Hartford Connecticut image URL updated.
-const temples = [
-  {
-    templeName: "Aba Nigeria",
-    location: "Aba, Nigeria",
-    dedicated: "2005, August, 7",
-    area: 11500,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg"
-  },
-  {
-    templeName: "Manti Utah",
-    location: "Manti, Utah, United States",
-    dedicated: "1888, May, 21",
-    area: 74792,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
-  },
-  {
-    templeName: "Payson Utah",
-    location: "Payson, Utah, United States",
-    dedicated: "2015, June, 7",
-    area: 96630,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
-  },
-  {
-    templeName: "Yigo Guam",
-    location: "Yigo, Guam",
-    dedicated: "2020, May, 2",
-    area: 6861,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg"
-  },
-  {
-    templeName: "Washington D.C.",
-    location: "Kensington, Maryland, United States",
-    dedicated: "1974, November, 19",
-    area: 156558,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg"
-  },
-  {
-    templeName: "Lima Perú",
-    location: "Lima, Perú",
-    dedicated: "1986, January, 10",
-    area: 9600,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
-  },
-  {
-    templeName: "Mexico City Mexico",
-    location: "Mexico City, Mexico",
-    dedicated: "1983, December, 2",
-    area: 116642,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
-  },
-  // Hartford Connecticut: Updated to use the raw GitHub link provided by the user
-  {
-    templeName: "Hartford Connecticut",
-    location: "Farmington, Connecticut, United States",
-    dedicated: "2016, November, 20",
-    area: 38000,
-    imageUrl: "https://raw.githubusercontent.com/donx10austin/hartford-connecticut-temple/090ba5f4133321f8fee305cf15e728db4189c0ad/hartford_connecticut_temples_exterior_steeples_clouds.jpeg"
-  },
-  // Sapporo Japan: Uses previous GitHub raw link
-  {
-    templeName: "Sapporo Japan",
-    location: "Sapporo, Hokkaido, Japan",
-    dedicated: "2016, August, 21",
-    area: 48480,
-    imageUrl: "https://raw.githubusercontent.com/donx10austin/sapparo-japan-temple/09f2d24661c40eb61e0adf966cddaa39aac69716/sapporo_japan_temple_night_photo.jpeg" 
-  },
-  // Oakland California: Uses previous GitHub raw link
-  {
-    templeName: "Oakland California",
-    location: "Oakland, California, United States",
-    dedicated: "1964, November, 17",
-    area: 87948,
-    imageUrl: "https://raw.githubusercontent.com/donx10austin/oakland-temple-images/a50f9413a378586a85d10ba17aa3be2d4c9b52c9/oakland_california_temple.png" 
-  },
-  // London England: Uses previous GitHub raw link
-  {
-    templeName: "London England",
-    location: "Newchapel, England",
-    dedicated: "1958, September, 7",
-    area: 42777,
-    imageUrl: "https://raw.githubusercontent.com/donx10austin/london-england-temple/149bc390e3c66bfed2304f4974e8b53af92d061c/london_england_temple_lds.jpeg" 
-  },
-  // Rome Italy: Uses previous GitHub raw link
-  {
-    templeName: "Rome Italy",
-    location: "Rome, Italy",
-    dedicated: "2019, March, 10",
-    area: 40000,
-    imageUrl: "https://raw.githubusercontent.com/donx10austin/rome-italy-temple/4535843a6dd6322ab9a1184651d34864596c4e4a/rome_italy_temple.jpeg" 
-  },
-];
-
-// Constants for filtering criteria
-const OLD_TEMPLES_YEAR = 1900;    // Old: before 1900
-const NEW_TEMPLES_YEAR = 2000;    // New: after 2000
-const LARGE_TEMPLES_AREA = 90000; // Large: larger than 90,000 sq ft
-const SMALL_TEMPLES_AREA = 10000; // Small: smaller than 10,000 sq ft
-
-// Get DOM elements
-const gallery = document.getElementById('temple-gallery');
-const pageTitle = document.querySelector('.page-title');
-const navLinks = document.querySelectorAll('#mainNav a');
-
-// Helper function to extract the year from the dedicated string (e.g., "2005, August, 7" -> 2005)
-function getDedicatedYear(dedicatedString) {
-    // The format is "YYYY, Month, Day"
-    const year = dedicatedString.split(',')[0].trim();
-    return parseInt(year);
-}
-
-// --- Core Functions ---
-
-// Function to create and render the HTML for the gallery
-const createTempleCards = (filteredTemples) => {
-    gallery.innerHTML = ''; // Clear existing content
-
-    filteredTemples.forEach(temple => {
-        const figure = document.createElement('figure');
-        
-        // Check if the temple is considered "large" and apply the 'is-large' class
-        if (temple.area > LARGE_TEMPLES_AREA) {
-            figure.classList.add('is-large');
-        }
-        
-        // 1. Image
-        const img = document.createElement('img');
-        img.src = temple.imageUrl; 
-        img.alt = temple.templeName;
-        img.loading = 'lazy'; // Required Lazy loading 
-
-        // 2. Caption
-        const figcaption = document.createElement('figcaption');
-        // Display location, full dedicated date, and area
-        figcaption.innerHTML = `
-            ${temple.templeName}<br>
-            <small>Location: ${temple.location}<br>
-            Dedicated: ${temple.dedicated}<br>
-            Size: ${temple.area.toLocaleString()} sq ft</small>`;
-
-        figure.appendChild(img);
-        figure.appendChild(figcaption);
-        gallery.appendChild(figure);
-    });
-};
-
-// Function to handle the actual filtering based on the data-filter attribute
-const filterTemples = (filter) => {
-    let filteredList = [];
-    let title = '';
-
-    switch (filter) {
-        case 'all':
-            filteredList = temples;
-            title = 'All Temples (Home)';
-            break;
-        case 'old':
-            // Temples built BEFORE 1900
-            filteredList = temples.filter(t => t.dedicatedYear < OLD_TEMPLES_YEAR);
-            title = `Dedicated Before ${OLD_TEMPLES_YEAR}`;
-            break;
-        case 'new':
-            // Temples built AFTER 2000
-            filteredList = temples.filter(t => t.dedicatedYear > NEW_TEMPLES_YEAR);
-            title = `Dedicated After ${NEW_TEMPLES_YEAR}`;
-            break;
-        case 'large':
-            // Temples LARGER THAN 90,000 sq ft
-            filteredList = temples.filter(t => t.area > LARGE_TEMPLES_AREA);
-            title = `Large Temples (Over ${LARGE_TEMPLES_AREA.toLocaleString()} sq ft)`;
-            break;
-        case 'small':
-            // Temples SMALLER THAN 10,000 sq ft
-            filteredList = temples.filter(t => t.area < SMALL_TEMPLES_AREA);
-            title = `Smaller Temples (Under ${SMALL_TEMPLES_AREA.toLocaleString()} sq ft)`;
-            break;
-        default:
-            filteredList = temples;
-            title = 'All Temples';
-            break;
-    }
-    
-    // Handle case where no temples match the filter
-    if (filteredList.length === 0) {
-        // Using CSS class instead of inline style (Fix 2)
-        gallery.innerHTML = `<p class="no-temples-message">No temples found for this filter criteria.</p>`;
-        pageTitle.textContent = title;
-        return;
-    }
-
-    // Update the page title and render the filtered list
-    pageTitle.textContent = title;
-    createTempleCards(filteredList);
-};
-
-// --- Event Listeners and Initialization ---
+// script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Preprocess data to add a numeric year property for easy filtering
-    temples.forEach(temple => {
-        temple.dedicatedYear = getDedicatedYear(temple.dedicated);
+  const container = document.getElementById("templeContainer");
+  const navItems = document.querySelectorAll("nav li");
+
+  const STUDENT_NAME = "Austin Anumudu";
+
+  // Render function
+  function renderTemples(list) {
+    container.innerHTML = "";
+
+    if (!list || list.length === 0) {
+      container.innerHTML = `<p class="no-temples" style="text-align:center; font-weight:bold; color:#5a2a83;">No temples found for this filter.</p>`;
+      return;
+    }
+
+    list.forEach(temple => {
+      const card = document.createElement("div");
+      card.className = "temple-card";
+      card.innerHTML = `
+        <h2>${escapeHtml(temple.templeName)}</h2>
+        <p><span>Location:</span> ${escapeHtml(temple.location)}</p>
+        <p><span>Dedicated:</span> ${escapeHtml(temple.dedicated)}</p>
+        <p><span>Size:</span> ${Number(temple.area).toLocaleString()} sq ft</p>
+        <img src="${escapeAttr(temple.imageUrl)}" alt="${escapeAttr(temple.templeName)}" loading="lazy">
+      `;
+      container.appendChild(card);
     });
-    
-    // 2. Footer initialization
-    const cy = document.getElementById('copyrightYear');
-    const lm = document.getElementById('lastModified');
-    
-    // Ensuring valid JavaScript reference for footer output
-    if (cy) cy.textContent = new Date().getFullYear();
-    if (lm) lm.textContent = document.lastModified;
+  }
 
-    // 3. Add click listener to all navigation links for filtering
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default link behavior
-            
-            // Get the filter type from the data-filter attribute
-            const filterType = link.getAttribute('data-filter');
-            filterTemples(filterType);
+  // Simple escaping helpers (prevents accidental HTML injection)
+  function escapeHtml(str = "") {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
 
-            // Update active link class for styling
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            link.classList.add('active');
+  function escapeAttr(str = "") {
+    return escapeHtml(str).replace(/\n/g, " ");
+  }
+
+  // Initial render (requires temples array from temples.js)
+  if (typeof temples === "undefined") {
+    console.error("temples array not found — make sure temples.js is loaded before script.js");
+    container.innerHTML = `<p style="text-align:center; color:#c0392b;">Error: temple data not loaded.</p>`;
+  } else {
+    renderTemples(temples);
+  }
+
+  // Filtering logic
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const filter = item.getAttribute("data-filter");
+      navItems.forEach(nav => nav.classList.remove("active"));
+      item.classList.add("active");
+
+      let filtered = temples || [];
+
+      if (filter === "old") {
+        filtered = filtered.filter(t => {
+          const year = parseInt(String(t.dedicated).split(",")[0], 10);
+          return !isNaN(year) && year < 1900;
         });
-    });
+      } else if (filter === "new") {
+        filtered = filtered.filter(t => {
+          const year = parseInt(String(t.dedicated).split(",")[0], 10);
+          return !isNaN(year) && year > 2000;
+        });
+      } else if (filter === "large") {
+        filtered = filtered.filter(t => Number(t.area) > 90000);
+      } else if (filter === "small") {
+        filtered = filtered.filter(t => Number(t.area) < 10000);
+      } // 'home' just leaves filtered as all temples
 
-    // 4. Initial load: Display all temples
-    filterTemples('all'); 
+      renderTemples(filtered);
+    });
+  });
+
+  // Footer: year, lastModified, student name injection
+  const yearSpan = document.getElementById("year");
+  const lastModifiedSpan = document.getElementById("lastModified");
+  const studentSpan = document.getElementById("studentName");
+
+  // set year and lastModified where possible
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  if (lastModifiedSpan) lastModifiedSpan.textContent = document.lastModified || "Unknown";
+
+  // Ensure student name is present — create/replace the first footer copyright <p> if needed
+  if (studentSpan) {
+    studentSpan.textContent = STUDENT_NAME;
+  } else {
+    // find the first <p> inside footer to inject the student name and year
+    const footer = document.querySelector("footer");
+    if (footer) {
+      const firstP = footer.querySelector("p");
+      if (firstP) {
+        firstP.innerHTML = `&copy; <span id="year">${new Date().getFullYear()}</span> | <span id="studentName">${escapeHtml(STUDENT_NAME)}</span>`;
+        // re-set lastModified if it exists in a second <p>
+        if (!lastModifiedSpan) {
+          const secondP = footer.querySelectorAll("p")[1];
+          if (secondP) {
+            secondP.innerHTML = `Last Modified: <span id="lastModified">${escapeHtml(document.lastModified || "Unknown")}</span>`;
+          } else {
+            // create a second <p>
+            const p2 = document.createElement("p");
+            p2.innerHTML = `Last Modified: <span id="lastModified">${escapeHtml(document.lastModified || "Unknown")}</span>`;
+            footer.appendChild(p2);
+          }
+        }
+      } else {
+        // no <p> at all — create them
+        const p1 = document.createElement("p");
+        p1.innerHTML = `&copy; <span id="year">${new Date().getFullYear()}</span> | <span id="studentName">${escapeHtml(STUDENT_NAME)}</span>`;
+        footer.appendChild(p1);
+        const p2 = document.createElement("p");
+        p2.innerHTML = `Last Modified: <span id="lastModified">${escapeHtml(document.lastModified || "Unknown")}</span>`;
+        footer.appendChild(p2);
+      }
+    }
+  }
 });

@@ -3,72 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiking Trails of Panama</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Panama Hiking Trails</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        
+        :root {
+            --font-lora: 'Lora', serif;
+            --font-inter: 'Inter', sans-serif;
+        }
+
+        
+        body {
+            scroll-behavior: smooth;
+        }
+
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #065f46; 
+            border-radius: 10px;
+        }
+    </style>
+
+    <script>
+        
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // Lora for headings (serif)
+                        serif: ['var(--font-lora)', 'serif'],
+                        // Inter for body (sans-serif)
+                        sans: ['var(--font-inter)', 'sans-serif'],
+                    },
+                    colors: {
+                        'rainforest-green': '#047857', // Deep Rainforest Green (Primary)
+                        'volcanic-amber': '#f59e0b',  // Volcanic Amber (Accent)
+                        'cloud-gray': '#f8fafc',      // Cloud Forest Gray (Background)
+                        'deep-gray': '#1f2937',       // Dark text/footer background
+                    }
+                }
+            }
+        }
+        
+        // JavaScript for smooth scrolling (optional but good for fixed headers)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    const headerHeight = document.querySelector('header').offsetHeight;
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - headerHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </head>
-<body>
-    <header>
-        <h1>Hiking Trails of Panama</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#trails">Trails</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+<!-- Apply Inter as the default font and Cloud Forest Gray background -->
+<body class="font-sans bg-cloud-gray text-deep-gray">
+    
+    <!-- Fixed Header with Deep Rainforest Green -->
+    <header class="fixed top-0 left-0 w-full bg-deep-gray text-white shadow-xl z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+            <!-- Site Name: Panama Hiking Trails (Lora/Serif font) -->
+            <h1 class="text-3xl md:text-4xl font-serif font-extrabold text-rainforest-green tracking-tight mb-3 md:mb-0">
+                Panama Hiking Trails
+            </h1>
+            
+            <!-- Navigation (Inter/Sans font) -->
+            <nav>
+                <ul class="flex space-x-4 md:space-x-8 text-sm md:text-base font-semibold">
+                    <li><a href="#home" class="hover:text-rainforest-green transition duration-150 p-2 rounded-lg">Home</a></li>
+                    <li><a href="#about" class="hover:text-rainforest-green transition duration-150 p-2 rounded-lg">About</a></li>
+                    <li><a href="#trails" class="hover:text-rainforest-green transition duration-150 p-2 rounded-lg">Trails</a></li>
+                    <li><a href="#contact" class="hover:text-rainforest-green transition duration-150 p-2 rounded-lg">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="home" class="content-section">
-            <h2>Home</h2>
-            <p>
-                Welcome to <strong>Hiking Trails of Panama!</strong> Explore lush rainforests, volcanic peaks, and breathtaking waterfalls through our carefully curated trail guides. Whether you're a beginner or an expert, there’s something here for you.
+    <!-- Main Content Area with top padding to offset fixed header -->
+    <main class="pt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Home Section -->
+        <section id="home" class="content-section mb-12 p-8 bg-white rounded-xl shadow-lg">
+            <!-- Heading: Lora/Serif, Deep Rainforest Green border -->
+            <h2 class="text-3xl font-serif font-semibold border-b-4 border-rainforest-green pb-2 mb-6 text-gray-800">
+                Discover Panama's Wild Heart
+            </h2>
+            <p class="text-lg text-gray-600 mb-6">
+                Welcome to **Panama Hiking Trails!** Explore lush rainforests, volcanic peaks, and breathtaking waterfalls through our carefully curated trail guides. Whether you're a beginner or an expert, there’s something here for you.
             </p>
+            <!-- Call to Action Button -->
+            <a href="#trails" class="inline-block py-3 px-6 bg-rainforest-green hover:bg-green-700 text-white font-bold rounded-lg transition duration-300 shadow-md">
+                Start Your Hike
+            </a>
         </section>
 
-        <section id="about" class="content-section">
-            <h2>About</h2>
-            <p>
+        <!-- About Section -->
+        <section id="about" class="content-section mb-12 p-8 bg-white rounded-xl shadow-lg">
+            <!-- Heading: Lora/Serif, Volcanic Amber border (Accent) -->
+            <h2 class="text-3xl font-serif font-semibold border-b-4 border-volcanic-amber pb-2 mb-6 text-gray-800">
+                Our Mission
+            </h2>
+            <p class="text-lg text-gray-600">
                 Our mission is to inspire people to experience the beauty of Panama through hiking. We share detailed trail maps, safety tips, and community insights. This site was created to promote eco-tourism and the preservation of Panama’s natural wonders.
             </p>
         </section>
 
-        <section id="trails" class="content-section">
-            <h2>Trails</h2>
-            <p>Discover some of the best trails in Panama, including:</p>
+        <!-- Trails Section -->
+        <section id="trails" class="content-section mb-12 p-8 bg-white rounded-xl shadow-lg">
+            <!-- Heading: Lora/Serif, Deep Rainforest Green border -->
+            <h2 class="text-3xl font-serif font-semibold border-b-4 border-rainforest-green pb-2 mb-8 text-gray-800">
+                Featured Trails
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">Discover three of the most essential hiking experiences Panama has to offer:</p>
             
-            <div class="trail-list-container">
-                <ul class="trail-cards">
-                    <li><strong>Volcán Barú Trail:</strong> Hike to the highest point in Panama and catch sunrise views of both oceans.</li>
-                    <li><strong>Pipeline Trail:</strong> A family-friendly rainforest path with rich birdlife and waterfalls.</li>
-                    <li><strong>Lost Waterfalls Trail:</strong> Explore hidden cascades deep in the cloud forests of Boquete.</li>
-                </ul>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Trail Card 1: Volcán Barú Trail (Extreme) -->
+                <div class="bg-gray-50 p-6 rounded-xl border-t-4 border-red-500 shadow-md transition duration-300 hover:shadow-xl">
+                    <h3 class="text-xl font-semibold font-serif text-gray-900 mb-2">Volcán Barú Trail</h3>
+                    <p class="text-sm text-gray-500 mb-4">📍 Boquete | Difficulty: <span class="text-red-500 font-semibold">Extreme</span></p>
+                    <p class="text-gray-600 text-base">Hike to the highest point in Panama ($$3,475m$$) and catch sunrise views of both the Pacific and Atlantic oceans. Requires permits and advanced fitness.</p>
+                </div>
+
+                <!-- Trail Card 2: Pipeline Trail (Easy) -->
+                <div class="bg-gray-50 p-6 rounded-xl border-t-4 border-green-500 shadow-md transition duration-300 hover:shadow-xl">
+                    <h3 class="text-xl font-semibold font-serif text-gray-900 mb-2">Pipeline Trail</h3>
+                    <p class="text-sm text-gray-500 mb-4">📍 Boquete | Difficulty: <span class="text-green-500 font-semibold">Easy</span></p>
+                    <p class="text-gray-600 text-base">A family-friendly rainforest path with rich birdlife, including high chances of spotting the Resplendent Quetzal, and small waterfalls.</p>
+                </div>
+
+                <!-- Trail Card 3: Lost Waterfalls Trail (Moderate) -->
+                <div class="bg-gray-50 p-6 rounded-xl border-t-4 border-volcanic-amber shadow-md transition duration-300 hover:shadow-xl">
+                    <h3 class="text-xl font-semibold font-serif text-gray-900 mb-2">Lost Waterfalls Trail</h3>
+                    <p class="text-sm text-gray-500 mb-4">📍 Boquete | Difficulty: <span class="text-volcanic-amber font-semibold">Moderate</span></p>
+                    <p class="text-gray-600 text-base">A challenging but rewarding trek through cloud forests to three hidden cascades. Often muddy, requiring appropriate footwear.</p>
+                </div>
+
             </div>
         </section>
 
-        <section id="contact" class="content-section">
-            <h2>Contact</h2>
-            <p>We’d love to hear from you! Fill out our form or send an email to <a href="mailto:info@hikingpanama.org">info@hikingpanama.org</a>.</p>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+        <!-- Contact Section -->
+        <section id="contact" class="content-section mb-12 p-8 bg-white rounded-xl shadow-lg">
+            
+            <h2 class="text-3xl font-serif font-semibold border-b-4 border-rainforest-green pb-2 mb-6 text-gray-800">
+                Get in Touch
+            </h2>
+            <p class="text-lg text-gray-600 mb-6">We’d love to hear from you! Fill out our form or send an email to <a href="mailto:info@panama-trekker.org" class="text-rainforest-green hover:underline">info@panama-trekker.org</a>.</p>
+            
+            <form class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                    <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-rainforest-green focus:border-rainforest-green">
+                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+                    <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-rainforest-green focus:border-rainforest-green">
+                </div>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message:</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-rainforest-green focus:border-rainforest-green resize-none"></textarea>
+                </div>
 
-                <button type="submit">Send</button>
+                <button type="submit" class="w-full py-3 bg-rainforest-green hover:bg-green-700 text-white font-bold rounded-lg transition duration-300 shadow-md">
+                    Send Message
+                </button>
             </form>
         </section>
     </main>
 
-    <footer>
-        <p>© 2025 Hiking Trails of Panama</p>
+    
+    <footer class="bg-deep-gray p-6 mt-12">
+        <div class="max-w-6xl mx-auto text-center text-gray-400 text-sm">
+            <p>© 2025 Panama Hiking Trails. All rights reserved.</p>
+        </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

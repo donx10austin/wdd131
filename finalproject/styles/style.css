@@ -1,155 +1,25 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+:root {
+    --font-lora: 'Lora', serif;
+    --font-inter: 'Inter', sans-serif;
 }
 
-/* Body */
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Slightly more modern font */
-    line-height: 1.6;
-    background: #f0f2f5; /* Lighter background for better contrast */
-    color: #333;
+    scroll-behavior: smooth;
+    
+    font-family: var(--font-inter); 
+    background-color: #f8fafc; 
 }
 
-/* Header */
-header {
-    background: #2c3e50; /* Deep blue/charcoal */
-    color: white;
-    padding: 1.5rem 0; /* Increased vertical padding */
-    text-align: center;
-    position: sticky; /* Keep navigation visible */
-    top: 0;
-    z-index: 1000; /* Ensures it stays above other content */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+::-webkit-scrollbar {
+    width: 8px;
 }
-
-header h1 {
-    margin-bottom: 0.75rem;
-    font-size: 2rem;
-    letter-spacing: 1px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem; /* Increased space between navigation links */
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #1abc9c; /* Highlight color for hover */
-    text-decoration: none;
-}
-
-/* Sections - KEY CHANGES FOR WIDTH AND SEPARATION */
-.content-section {
-    /* Increased Max Width for wider sections on desktop */
-    max-width: 1100px;
-    /* Added more top/bottom margin for separation */
-    margin: 4rem auto;
-    padding: 3rem; /* Increased internal padding */
-    background: white;
-    border-radius: 12px; /* Slightly more rounded corners */
-    /* Stronger, but softer shadow */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #1abc9c; /* Accent color on the side */
-}
-
-.content-section h2 {
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-    font-size: 2rem;
-    border-bottom: 2px solid #ecf0f1; /* Subtle divider under the title */
-    padding-bottom: 0.5rem;
-}
-
-.content-section p, 
-.content-section ul {
-    margin-bottom: 1.5rem;
-}
-
-.content-section ul {
-    padding-left: 20px;
-}
-
-.content-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px; /* Constrain form width */
-    margin-top: 1.5rem;
-}
-
-label {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-input, textarea {
-    padding: 1rem;
-    border: 1px solid #bdc3c7; /* Light grey border */
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-input:focus, textarea:focus {
-    border-color: #1abc9c;
-    outline: none;
-}
-
-button {
-    background: #1abc9c; /* Primary action color (Teal) */
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 1rem;
-    border-radius: 6px;
-    font-size: 1.1rem;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #16a085; /* Darker teal on hover */
-}
-
-/* Footer */
-footer {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 4rem; /* Match top section margin for symmetry */
-}
-
-/* Responsive Wireframe */
-@media (max-width: 768px) {
-    /* Stack navigation on mobile */
-    nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    /* Reduce margins and padding on mobile */
-    .content-section {
-        margin: 2rem 1rem;
-        padding: 1.5rem;
-        max-width: 100%;
-    }
+::-webkit-scrollbar-thumb {
+    background: #065f46; 
+    border-radius: 10px;
 }

@@ -1,52 +1,225 @@
+/* Body */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb; /* Light background */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* HEADER & FOOTER */
-.header-section,
-.footer-section {
-  background-color: #1e3a8a; /* Blue */
-  color: white;
-  position: relative;
+/* HEADER */
+.header-section {
+    /* Deep Plum/Maroon color: #5d1558 */
+    background-color: #5d1558; 
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-/* Optional faint texture */
-.header-section::before,
-.footer-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: 0;
+.header-section h1 {
+    margin: 0;
+    font-size: 2.5rem;
 }
 
-.header-content,
-.footer-content {
-  position: relative;
-  z-index: 1;
+/* MAIN FORM */
+.main-form {
+    flex-grow: 1; /* Allows form to take up available space */
+    display: flex;
+    justify-content: center;
+    padding: 5rem 1rem 2rem; /* Increased top padding for separation from header */
+}
+
+.form-container {
+    /* Light Lavender/Mauve for form body background: #e6e0eb */
+    background-color: #e6e0eb; 
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.form-group {
+    margin-bottom: 1.25rem; /* Tighter spacing for proximity */
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+@media (min-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600; /* Semi-bold */
+    color: #333;
+    font-size: 0.875rem; /* sm text */
+}
+
+/* General Input Styling */
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #3730a3; /* Deep Indigo focus color */
+    box-shadow: 0 0 0 2px rgba(55, 48, 163, 0.2);
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    min-height: 100px;
 }
 
 /* STAR RATING */
 .star-rating input[type="radio"] {
-  display: none;
+    display: none;
+}
+.star-rating-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
 }
 
 .star-rating label {
-  cursor: pointer;
-  color: #d1d5db;
-  transition: color 0.2s;
-  font-size: 1.5rem;
-  padding: 0 4px;
+    cursor: pointer;
+    color: #d1d5db; /* Default gray state */
+    font-size: 1.75rem; /* Large stars */
+    padding: 0 3px;
+    transition: color 0.2s;
+    line-height: 1;
 }
 
-.star-rating input[type="radio"]:checked ~ label {
-  color: #f59e0b; /* Amber star */
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f59e0b; /* Amber */
 }
 
+/* Reset hover after checked star */
+.star-rating input[type="radio"]:checked:hover ~ label {
+    color: #d1d5db; 
+}
 .star-rating {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
 }
 
+/* FEATURES */
+.features-group-label {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+}
+.features-container {
+    padding: 1rem;
+    border: 2px solid rgba(55, 48, 163, 0.2);
+    border-radius: 12px;
+    background-color: rgba(55, 48, 163, 0.05); /* Light indigo background */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+/* CHECKBOXES */
+.feature-item {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+.features-container input[type="checkbox"] {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #9ca3af;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+.features-container input[type="checkbox"]:checked {
+    background-color: #3730a3; /* Deep Indigo checked */
+    border-color: #3730a3;
+}
+.features-container input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.75rem;
+}
+
+
+/* SUBMIT BUTTON (White/Outline Style) */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: white;
+    color: #3730a3; /* Deep Indigo text */
+    font-weight: bold;
+    border: 2px solid #3730a3;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.125rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.submit-btn:hover {
+    background-color: #3730a3;
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* FOOTER */
+.footer-section {
+    /* Deep Plum/Maroon color: #5d1558 */
+    background-color: #5d1558; 
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.875rem;
+}
+.footer-content {
+    color: white; 
+    font-weight: normal;
+}
+.footer-content p {
+    margin: 0;
+}
+/* This targets the bold, accented text in the footer */
+.footer-content span {
+    color: #3730a3; 
+    font-weight: bold;
+}

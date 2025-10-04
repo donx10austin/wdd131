@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Product Review</title>
+
+  <!-- Google Font & Tailwind CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            'primary-indigo': '#3730a3',
+            'header-blue': '#1e3a8a',
+            'field-bg-light': '#e6e0eb',
+            'accent-star': '#f59e0b',
+            'bg-light': '#f9fafb',
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-start p-6 bg-bg-light">
+
+  <!-- HEADER -->
+  <header class="header-section w-full rounded-t-xl py-14 px-8 sm:px-10 mb-10 shadow-md flex items-center justify-center">
+    <div class="header-content text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold text-white">Product Review</h1>
+      <!-- Removed the description line here -->
+    </div>
+  </header>
+
+  <!-- MAIN FORM -->
+  <main class="w-full max-w-3xl mb-24">
+    <div class="bg-field-bg-light p-6 sm:p-10 rounded-xl shadow-2xl border border-gray-200">
+      <form id="review-form" action="review.html" method="get" class="space-y-6">
+
+        <!-- Product Name -->
+        <div>
+          <label for="product-name" class="block text-sm font-semibold text-gray-700 mb-1">
+            Product Name *
+          </label>
+          <select id="product-name" name="product-name" required
+            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary-indigo focus:ring-primary-indigo transition">
+            <option value="" disabled selected>Choose a Product ...</option>
+          </select>
+        </div>
+
+        <!-- Rating + Date -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">Overall Rating *</label>
+            <div class="flex items-center p-3 border border-gray-200 rounded-lg bg-gray-50">
+              <div class="star-rating" role="radiogroup" aria-required="true" id="rating-group">
+                <input type="radio" id="star5" name="rating" value="5" required aria-label="5 stars"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="install-date" class="block text-sm font-semibold text-gray-700 mb-1">
+              Date of Installation *
+            </label>
+            <input type="date" id="install-date" name="install-date" required
+              class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary-indigo focus:ring-primary-indigo transition">
+          </div>
+        </div>
+
+        <hr class="border-gray-100 my-4">
+
+        <!-- Features -->
+        <div>
+          <label class="block text-lg font-bold text-gray-800 mb-3">
+            Useful Features (Check all that apply)
+          </label>
+          <div id="features-container" class="grid grid-cols-2 gap-4 sm:grid-cols-3 p-4 border-2 border-primary-indigo/20 rounded-xl bg-primary-indigo/5"></div>
+        </div>
+
+        <!-- Written Review -->
+        <div>
+          <label for="review-text" class="block text-sm font-semibold text-gray-700 mb-1">
+            Written Review
+          </label>
+          <textarea id="review-text" name="review-text" rows="5"
+            placeholder="Share your detailed thoughts on the product..."
+            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary-indigo focus:ring-primary-indigo resize-none transition"></textarea>
+        </div>
+
+        <!-- Username -->
+        <div>
+          <label for="user-name" class="block text-sm font-semibold text-gray-700 mb-1">
+            User Name (Optional)
+          </label>
+          <input type="text" id="user-name" name="user-name" placeholder="Your name or nickname"
+            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary-indigo focus:ring-primary-indigo transition">
+        </div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit Review"
+          class="w-full flex justify-center py-4 px-4 border-2 border-primary-indigo rounded-lg shadow-xl text-lg font-bold text-primary-indigo bg-white hover:bg-primary-indigo hover:text-white focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-primary-indigo transition duration-150 cursor-pointer mt-8">
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-section relative w-full py-8 text-center border-t border-gray-200 text-sm font-semibold overflow-hidden">
+    <div class="footer-content relative z-10">
+      <p>&copy; 2025 | Austin Anumudu | Nigeria | Last Modified: October 4, 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

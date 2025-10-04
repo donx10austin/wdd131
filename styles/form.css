@@ -1,0 +1,52 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+}
+
+/* HEADER & FOOTER */
+.header-section,
+.footer-section {
+  background-color: #1e3a8a; /* Blue */
+  color: white;
+  position: relative;
+}
+
+/* Optional faint texture */
+.header-section::before,
+.footer-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 0;
+}
+
+.header-content,
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* STAR RATING */
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  cursor: pointer;
+  color: #d1d5db;
+  transition: color 0.2s;
+  font-size: 1.5rem;
+  padding: 0 4px;
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+  color: #f59e0b; /* Amber star */
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+

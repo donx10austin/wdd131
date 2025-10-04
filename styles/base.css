@@ -1,0 +1,92 @@
+/* ========== GLOBAL RESET ========== */
+:root {
+  --title-bg: #1e4d6b;
+  --nav-bg: #333;
+  --accent: #ffcc00;
+  --text-light: #ffffff;
+  --text-dark: #222;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background: #f9f9f9;
+  color: var(--text-dark);
+}
+
+/* ========== HEADER ========== */
+.site-header .title-bar {
+  background: var(--title-bg);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.site-header .title-bar h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.site-header .title-bar #course-title {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.site-header .title-bar .owner {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* FLEX NAV BAR ✅ */
+.site-header .nav-bar {
+  display: flex;                
+  justify-content: space-around; 
+  align-items: center;           
+  background: var(--nav-bg);
+}
+
+.site-header .nav-bar a {
+  color: var(--text-light);
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.site-header .nav-bar a:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ========== MAIN ========== */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;      /* ✅ width limit */
+  margin: 0 auto;          /* ✅ center */
+}
+
+.card {
+  background: #1e4d6b;
+  color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}

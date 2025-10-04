@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Handle multiple checkboxes
         data['useful-features'] = Array.from(form.querySelectorAll('input[name="useful-feature"]:checked'))
-                                       .map(el => el.value);
+                                             .map(el => el.value);
 
         console.log("Form Submitted Successfully (simulated). Data:", data);
         

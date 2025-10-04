@@ -1,9 +1,8 @@
-/*
-  CSS for Product Review Form (style.css)
-  Based on the uploaded image and user requests for blue theme.
-*/
+/* FIX 6: Font import moved from HTML link to CSS @import, as required by the linter's rule for the 'styles' directory. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-/* Body */
+/* BASE & LAYOUT */
+/* FIX 5: All CSS moved from HTML <style> block to here (styles/style.css) */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f9fafb; /* Light background */
